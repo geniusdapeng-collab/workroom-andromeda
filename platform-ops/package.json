@@ -7,5 +7,11 @@
   "scripts": {
     "test": "vitest run test",
     "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@workloom/base": "workspace:*"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.11"
   }
 }
