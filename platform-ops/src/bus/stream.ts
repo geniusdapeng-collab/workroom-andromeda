@@ -11,15 +11,16 @@
  *  - NatsEventBus / RedisEventBus（持久化适配器：本地镜像 + 后台同步泵；
  *    生产 EVENT_BUS=nats|redis 切换，见 platform-ops/docs/bus-failover-drill.md 演练手册）。
  */
-import { MemoryEventBus } from "@workloom/base/event-bus";
+import { MemoryEventBus, createEventBusFromEnv } from "@workloom/base/event-bus";
 
 export type { BusMessage, ConsumerGroupLike, EventBusLike, StreamName } from "@workloom/base/event-bus";
 /** 旧类型别名（消费方零改动） */
 export type { ConsumerGroupLike as ConsumerGroup } from "@workloom/base/event-bus";
 export {
-  MemoryEventBus, MirroredEventBus, createEventBusFromEnv, createNatsBus, createRedisBus,
+  MemoryEventBus, MirroredEventBus, createNatsBus, createRedisBus,
   type BusBackend, type OutboxMsg, type PersistedMsg, type StreamSpec,
 } from "@workloom/base/event-bus";
+export { createEventBusFromEnv } from "@workloom/base/event-bus";
 
 /** §17.3 四条流的拓扑声明（单一事实源，生产部署按本表建流；一方资产） */
 export const STREAM_TOPOLOGY = {
@@ -52,4 +53,19 @@ export class EventBus extends MemoryEventBus {
   constructor(now: () => number = () => Date.now()) {
     super(Object.keys(STREAM_TOPOLOGY), now);
   }
+}
+
+/**
+ * 平台运行时一行装配入口（P0-3 闭环）：拓扑 + 切换机制一次到位。
+ * 用法：const bus = await createPlatformEventBus();
+ *  ① EVENT_BUS=nats|redis（+EVENT_BUS_URL）→ 持久化适配器（生产）；
+ *  ② EVENT_BUS=memory → 内存形态（测试/开发）；
+ *  ③ 缺省自动：内嵌 NATS 可连则 nats，否则 memory（桌面自包含包启动器已注入 EVENT_BUS=nats）。
+ * 切换/回退/演练见 platform-ops/docs/bus-failover-drill.md（科目四：环境变量改回即秒级回退）。
+ */
+export async function createPlatformEventBus(
+  env: Record<string, string | undefined> = typeof process !== "undefined" ? process.env : {},
+  now: () => number = () => Date.now(),
+): Promise<import("@workloom/base/event-bus").EventBusLike> {
+  return createEventBusFromEnv(env, { streams: topologySpecs(), now });
 }
