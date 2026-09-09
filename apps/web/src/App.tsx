@@ -16,6 +16,7 @@ import P24 from "./pages/p24/P24";
 import P25 from "./pages/p25/P25";
 import P26 from "./pages/p26/P26";
 import P27 from "./pages/p27/P27";
+import P32 from "./pages/p32/P32";
 import DevMatrix from "./pages/dev/DevMatrix";
 import Onboarding from "./pages/onboarding/Onboarding";
 import { Bridge } from "./shell/Bridge";
@@ -55,6 +56,7 @@ function Shell() {
       <Route path="/p25" element={<P25 />} />
       <Route path="/p26" element={<P26 />} />
       <Route path="/p27" element={<P27 />} />
+      <Route path="/p32" element={<P32 />} />
       <Route path="/onboarding" element={<Onboarding />} />
       <Route path="/dev" element={<Bridge><DevMatrix /></Bridge>} />
           <Route path="*" element={<P0 />} />

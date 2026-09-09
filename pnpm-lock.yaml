@@ -60,6 +60,9 @@ importers:
       '@workloom/db':
         specifier: workspace:*
         version: link:../../packages/db
+      '@workloom/platform-ops':
+        specifier: workspace:*
+        version: link:../../platform-ops
       '@workloom/runtime':
         specifier: workspace:*
         version: link:../../packages/runtime

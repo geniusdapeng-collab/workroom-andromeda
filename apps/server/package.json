@@ -24,7 +24,8 @@
     "@workloom/shared": "workspace:*",
     "hono": "4.13.5",
     "jose": "6.2.10",
-    "zod": "^4.4.3"
+    "zod": "^4.4.3",
+    "@workloom/platform-ops": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

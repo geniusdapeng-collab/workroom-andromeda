@@ -35,6 +35,7 @@ import { providerFromEnv, OpenAiCompatibleProvider } from "@workloom/base/model-
 import { routedLlmCall, resetLlmAssembly } from "../service/llm.js";
 import { creditsRouter, modelFeedbackRouter } from "./credits-router.js";
 import { overlayRouter } from "./overlay-router.js";
+import { accountOpsRouter } from "./account-ops-router.js";
 import { runRouterReviewBeat } from "@workloom/base/model-router";
 import {
   loadCharter, parseCharter, transition, defaultCharter,
@@ -2808,6 +2809,7 @@ export const appRouter = router({
   memory: memoryRouter,
   evolution: evolutionRouter,
   overlay: overlayRouter,
+  accountOps: accountOpsRouter,
 });
 
 export type AppRouter = typeof appRouter;

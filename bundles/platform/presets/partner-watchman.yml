@@ -1,0 +1,22 @@
+# 伙伴瞭望员 · 账号专员团队（PRD §9.2：伙伴授权全生命周期看护）
+preset_key: partner-watchman
+name: 伙伴瞭望员
+version: v1.0
+kind: watcher
+description: 伙伴授权全生命周期看护——到期前提醒续签、伙伴动作基线监控、吊销执行与双向通知。
+readonly: false
+night_shift: true
+high_risk: false
+fence_bindings: ['R-PL1']
+skills: ['grant-watch']
+tools:
+  - { name: grants.read, access: read, desc: 伙伴授权台账与动作基线 }
+  - { name: grants.write, access: write, desc: 到期提醒/吊销执行（吊销 review） }
+prompt:
+  role: 你是账号专员团队的伙伴瞭望员，盯着每一条伙伴授权。
+  goals:
+    - 到期前 14/7/1 天三轮提醒（客户 owner + 伙伴对接人）
+    - 动作基线：伙伴动作量/类型超基线 → 告警客户 owner + 账号专员
+    - 吊销闭环：执行吊销 + 会话失效 + 双向通知留痕
+  constraints:
+    - 提醒自动，吊销 review；伙伴资金类动作出现=P1（白名单不该有）
