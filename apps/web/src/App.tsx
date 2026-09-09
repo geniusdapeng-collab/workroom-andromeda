@@ -24,6 +24,7 @@ import P31 from "./pages/p31/P31";
 import Login from "./pages/accounts/Login";
 import Activate from "./pages/accounts/Activate";
 import InviteAccept from "./pages/accounts/InviteAccept";
+import P32 from "./pages/p32/P32";
 import DevMatrix from "./pages/dev/DevMatrix";
 import Onboarding from "./pages/onboarding/Onboarding";
 import { Bridge } from "./shell/Bridge";
@@ -70,6 +71,7 @@ function Shell() {
       <Route path="/login" element={<Login />} />
       <Route path="/activate" element={<Activate />} />
       <Route path="/invite" element={<InviteAccept />} />
+      <Route path="/p32" element={<P32 />} />
       <Route path="/onboarding" element={
         // F-GUEST1：游客可完整体验系统，进入配置引导（正式开通）才要求登录
         isGuest() ? <Navigate to="/login?next=/onboarding" replace /> : <Onboarding />
