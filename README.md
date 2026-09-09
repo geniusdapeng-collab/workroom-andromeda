@@ -431,6 +431,36 @@ WorkLoom 没有重复造 Agent 运行时的轮子，而是**站在 DeepSeek Harn
 
 ---
 
+## 四.五、账号体系（三域模型 · 用 AI 运维 AI）
+
+> 完整 PRD：[docs/accounts-prd.md](docs/accounts-prd.md)（设计原则/数据表/登录模块/权限审批/我的体系/看板/异常提醒/账号专员团队/积分结算/合规/实施路线，全员可读）。
+
+仙女座作为平台运营方，账号体系按**三域模型**运转——真人三种，各进各的门，物理隔离：
+
+| 域 | 主体 | 认证 | 权限模型 | 落在哪 |
+|---|---|---|---|---|
+| **客户域**（行业版） | 客户企业真人（owner/manager/staff/readonly） | 手机验证码 / 邮箱密码 / 微信扫码（seam） | 全局账号 accounts × 成员关系 memberships（角色+点状权限） | 基座 packages/base/accounts（全行业仓共享，新行业自动继承） |
+| **伙伴域** | 代运营/托管（agency）、外包（contractor 一次性工单通行证）、观察者（observer） | 手机验证码 + grant 校验 | 能力白名单（客户 owner 签发、随时吊销、资金类永不开放、动作双向留痕） | 基座（客户可管可控） |
+| **平台域**（本仓） | 平台运营真人（MFA 强制）+ 运营数字员工（service_accounts） | 邮箱+密码+TOTP | 分组授权（行业×区域×批次 cohort）+ 能力分级 + break-glass 双人制 | platform-ops（一方资产，不同步） |
+
+**平台域独有纪律**：
+- **break-glass 紧急介入**：客户预授权 + 平台双人复核 + 全程留痕 + 24h 内报告推送客户，超期无豁免（无人酒店夜间应急等极端场景）；
+- **平台动作客户可见**：platform_action_log 由平台写入、客户审计页可读——平台在客户店里干过什么，客户随时可查（信任卖点）；
+- **平台永不替客户审批**：客户经营动作的审批权永远在客户手里。
+
+**账号专员数字员工团队（用 AI 运维 AI）**：账号域日常运营由 1 主管 + 5 专员承担，真人只做裁决与例外：
+
+| 岗位 | 职责 | 围栏档位 |
+|---|---|---|
+| account-steward 账号专员（主管） | 账号域健康日报、中低风险自裁、高风险升级真人审批卡 | R-PL1 |
+| login-guard 登录卫士 | 异常登录/爆破/羊毛注册检测，限速自动、锁定人审 | R-PL1 |
+| lifecycle-clerk 生命周期专员 | 开通自愈/邀请追踪/批量名单/离职闭环 | 批量必人审 |
+| permission-auditor 权限审计员 | 每周最小权限复核（僵尸/超权/失联 owner），只读+建议 | 处置必人审 |
+| partner-watchman 伙伴瞭望员 | grant 到期三轮提醒/动作基线/吊销闭环 | 吊销 review |
+| key-custodian 密钥保管员 | API key 基线/泄露嫌疑/break-glass 死线追踪 | 停用必人审 |
+
+配套界面：**P32 账号运营中心**（五看板：账号大盘/安全/权限审计/伙伴授权/会话密钥 + 账号域异常台账）。
+
 ## 五、系统架构与业务闭环
 
 <p align="center"><img src="docs/images/architecture.png" alt="WorkLoom 系统架构" width="88%"/></p>
@@ -540,6 +570,7 @@ LLM_MODEL=deepseek-chat
 | [架构决策记录](docs/DECISIONS.md) | 开发者 | ADR：为什么这么设计（含否决方案论证） |
 | [审计记录](docs/AUDIT.md) | 开发者 / 安全 | 六轮审计的问题、根因、修复与门禁实测 |
 | [CHANGELOG](CHANGELOG.md) | 所有人 | 版本变更历史（Keep a Changelog 格式） |
+| [账号体系 PRD](docs/accounts-prd.md) | 全员（运营/产研/销售） | 三域账号模型、登录模块、权限审批、我的体系、管理看板、异常提醒、账号专员数字员工团队、实施路线 |
 | [行业落地方法论](docs/methodology/01-行业落地三技能体系.md) | 交付 / 行业拓展 | 行业落地三技能体系 |
 
 ---
