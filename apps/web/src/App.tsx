@@ -1,4 +1,5 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes, Navigate } from "react-router";
+import { isGuest } from "./lib/trpc";
 import P1 from "./pages/p1/P1";
 import P2 from "./pages/p2/P2";
 import P9 from "./pages/p9/P9";
@@ -23,7 +24,6 @@ import P31 from "./pages/p31/P31";
 import Login from "./pages/accounts/Login";
 import Activate from "./pages/accounts/Activate";
 import InviteAccept from "./pages/accounts/InviteAccept";
-import P32 from "./pages/p32/P32";
 import DevMatrix from "./pages/dev/DevMatrix";
 import Onboarding from "./pages/onboarding/Onboarding";
 import { Bridge } from "./shell/Bridge";
@@ -70,12 +70,23 @@ function Shell() {
       <Route path="/login" element={<Login />} />
       <Route path="/activate" element={<Activate />} />
       <Route path="/invite" element={<InviteAccept />} />
-      <Route path="/p32" element={<P32 />} />
-      <Route path="/onboarding" element={<Onboarding />} />
+      <Route path="/onboarding" element={
+        // F-GUEST1：游客可完整体验系统，进入配置引导（正式开通）才要求登录
+        isGuest() ? <Navigate to="/login?next=/onboarding" replace /> : <Onboarding />
+      } />
       <Route path="/dev" element={<Bridge><DevMatrix /></Bridge>} />
           <Route path="*" element={<P0 />} />
         </Routes>
       </div>
+      {/* 游客模式浮标（F-GUEST1：随时可去正式开通/登录） */}
+      {!bare && isGuest() && (
+        <a
+          href="/login"
+          className="fixed bottom-5 right-5 z-50 rounded-full border border-amber-500/40 bg-neutral-900/95 px-4 py-2 text-sm text-amber-300 shadow-lg hover:border-amber-400"
+        >
+          游客体验中 · <span className="font-semibold underline">正式开通 →</span>
+        </a>
+      )}
     </div>
   );
 }
