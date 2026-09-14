@@ -91,7 +91,7 @@ export function Bridge({
           {/* 顶栏（原型 V4.0 .abar chrome 条） */}
           <header className="flex items-center gap-3.5 border-b border-line bg-bg950/90 px-4.5 py-2.5 backdrop-blur-md">
             <span className="text-xs text-ink3">
-              企业数字员工 IM · <b className="font-semibold text-ink2">云栖酒店</b>
+              平台运营系统 · <b className="font-semibold text-ink2">仙女座运营运维中心</b>
             </span>
             <span className="flex-1" />
             <PlanSwitcher onPlan={setPlan} />
@@ -114,9 +114,9 @@ export function Bridge({
               {left ?? (<>
               <div className="mb-2 px-1 text-[11px] tracking-[.2em] text-ink3">会话 · THREADS</div>
               {[
-                { id: "T-101", title: "周五旺季调价", status: "completed", cls: "text-go" },
-                { id: "T-102", title: "差评应急回复", status: "pending_review", cls: "text-warn" },
-                { id: "T-103", title: "飞猪首图发布", status: "running", cls: "text-holo" },
+                { id: "T-101", title: "本周经营复盘", status: "completed", cls: "text-go" },
+                { id: "T-102", title: "待审批事项处理", status: "pending_review", cls: "text-warn" },
+                { id: "T-103", title: "重点任务推进", status: "running", cls: "text-holo" },
               ].map((t) => (
                 <div
                   key={t.id}
