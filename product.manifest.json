@@ -11,7 +11,7 @@
   "release": {
     "appId": "com.geniusdapeng.workroomandromeda",
     "channel": "stable",
-    "artifactPrefix": "Workroom Andromeda",
+    "artifactPrefix": "Workroom.Andromeda",
     "website": "apps/site"
   },
   "desktop": {
