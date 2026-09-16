@@ -8,6 +8,9 @@ readonly: false
 night_shift: true
 high_risk: false
 fence_bindings: ['R-PM8', 'R-PM10', 'R-PM11']
+coverage:
+  - event_prefix: ai-pm.eval-master.
+    label: 兼容事件域
 skills: ['eval-forge', 'badcase-harvest', 'finetune-tracker']
 tools:
   - { name: eval_set.read, access: read, desc: 读取 eval 集与历史跑分 }

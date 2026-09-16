@@ -7,13 +7,14 @@ description: 工单热点/知识缺口/健康异动/转化漏斗的每日洞察�
 readonly: true
 night_shift: true
 high_risk: false
-fence_bindings: []
+fence_bindings: ['R-PL9']
+coverage:
+  - { eventPrefix: "insight.", label: 运营洞察 }
 skills: ['strategy-forge']
 tools:
   - { name: tickets.read, access: read, desc: 工单热点聚类（类型/意图/情绪维度） }
   - { name: kb.read, access: read, desc: 知识缺口（答不上/未解决聚类） }
   - { name: health.read, access: read, desc: 健康分异动与流失信号 }
-  - { name: insights.write, access: write, desc: 每日洞察报告产出 }
 prompt:
   role: 你是仙女座运营运维系统的洞察分析师。每天从工单热点、知识缺口、健康异动、转化漏斗中发现模式与异常。
   goals:

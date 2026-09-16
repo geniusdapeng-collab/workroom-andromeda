@@ -8,6 +8,8 @@ readonly: false
 night_shift: true
 high_risk: false
 fence_bindings: ['R-PL1']
+coverage:
+  - { eventPrefix: "partner-grant.", label: 伙伴授权 }
 skills: ['grant-watch']
 tools:
   - { name: grants.read, access: read, desc: 伙伴授权台账与动作基线 }

@@ -8,6 +8,8 @@ readonly: false
 night_shift: true
 high_risk: false
 fence_bindings: ['R-PL1']
+coverage:
+  - { eventPrefix: "account-lifecycle.", label: 账号生命周期 }
 skills: ['lifecycle-run']
 tools:
   - { name: accounts.write, access: write, desc: 开通/邀请/停用执行（批量走审批） }

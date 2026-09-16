@@ -8,6 +8,8 @@ readonly: false
 night_shift: true
 high_risk: false
 fence_bindings: ['R-PL1']
+coverage:
+  - { eventPrefix: "account.", label: 账号运营 }
 skills: ['account-health-daily']
 tools:
   - { name: accounts.read, access: read, desc: 读账号/成员/授权/会话投影（五看板数据源） }

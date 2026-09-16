@@ -8,6 +8,9 @@ readonly: false
 night_shift: true
 high_risk: false
 fence_bindings: ['R-PM12']
+coverage:
+  - event_prefix: ai-pm.knowledge-curator.
+    label: 兼容事件域
 skills: ['kb-fresh', 'learning-digest']
 tools:
   - { name: kb.read, access: read, desc: 读取知识库全量条目 }

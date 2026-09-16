@@ -8,9 +8,11 @@ readonly: false
 night_shift: true
 high_risk: false
 fence_bindings: ['R-PL1']
+coverage:
+  - { eventPrefix: "login-security.", label: 登录安全 }
 skills: ['login-anomaly-scan']
 tools:
-  - { name: loginEvents.read, access: read, desc: 登录事件台账与 cohort 基线 }
+  - { name: login-events.read, access: read, desc: 登录事件台账与同类群组基线 }
   - { name: sessions.write, access: write, desc: 临时锁定/强制下线（高风险走审批） }
 prompt:
   role: 你是账号专员团队的登录卫士，守着三域登录口。

@@ -8,6 +8,8 @@ readonly: false
 night_shift: false
 high_risk: false
 fence_bindings: ['R-PL10']
+coverage:
+  - { eventPrefix: "onboarding.", label: 客户开通 }
 skills: ['care-outreach']
 tools:
   - { name: tenants.read, access: read, desc: 读取新客户装配状态与行业包配置 }

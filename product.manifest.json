@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "workloom.product/v1",
+  "productId": "workroom-andromeda",
+  "role": "operations-hub",
+  "displayName": "仙女座运营运维系统",
+  "packageName": "workroom-andromeda",
+  "repository": "geniusdapeng-collab/workroom-andromeda",
+  "defaultBundle": "platform",
+  "demoWorkspaceSlug": "platform-demo",
+  "demoMemberNo": "MEM-001",
+  "release": {
+    "appId": "com.geniusdapeng.workroomandromeda",
+    "channel": "stable",
+    "artifactPrefix": "Workroom Andromeda",
+    "website": "apps/site"
+  },
+  "desktop": {
+    "portOffset": 120
+  },
+  "clients": {
+    "bPc": { "enabled": true, "entry": "apps/web" },
+    "bMobile": { "enabled": true, "entry": "apps/webb" },
+    "cMobile": { "enabled": true, "entry": "apps/webc" }
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "name": "workloom-im",
+  "name": "workroom-andromeda",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -18,6 +18,7 @@
     "dev": "node scripts/dev-note.js && concurrently -k -n server,web \"pnpm -C apps/server dev\" \"pnpm -C apps/web dev\"",
     "db:migrate": "tsx --env-file=.env scripts/migrate.ts",
     "db:seed": "tsx --env-file=.env scripts/seed.ts",
+    "db:seed:platform": "tsx --env-file=.env scripts/seed-platform.ts",
     "demo": "TOOL_UNVERIFIED_RATE=0 tsx --env-file=.env scripts/demo.ts",
     "doctor": "bash scripts/doctor.sh",
     "typecheck": "pnpm -r --if-present typecheck",
@@ -50,12 +51,18 @@
     "app:dist": "electron-builder",
     "setup:lite": "tsx scripts/setup-lite.mts",
     "db:seed:aipm": "tsx --env-file=.env scripts/seed-aipm.ts",
-    "product:verify": "node scripts/verify-product-content.mjs"
+    "product:verify": "node scripts/verify-product-content.mjs",
+    "bundle:governance": "tsx scripts/bundle-governance.mts",
+    "bundle:seal": "tsx scripts/bundle-governance.mts --refresh-digests",
+    "bundle:release": "tsx scripts/bundle-governance.mts --refresh-digests --release"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
       "node-pty"
-    ]
+    ],
+    "overrides": {
+      "@workloom/ui@0.1.1": "https://github.com/geniusdapeng-collab/workloom-im/releases/download/ui-v0.1.1/workloom-ui-0.1.1.tgz"
+    }
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
@@ -65,7 +72,9 @@
     "tsx": "^4.23.12",
     "typescript": "^7.0.2",
     "vitest": "^4.1.11",
-    "yaml": "2.9.0"
+    "yaml": "2.9.0",
+    "typescript-governance": "npm:typescript@5.9.3",
+    "yaml-governance": "npm:yaml@2.9.0"
   },
-  "description": "WorkLoom IM · 企业级 Agent IM 底座（智能班组 + 围栏 + 人审 + 夜班）"
+  "description": "仙女座运营运维系统 · 用 WorkLoom 运营 WorkLoom"
 }
