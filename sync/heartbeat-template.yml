@@ -23,7 +23,7 @@ permissions:
   issues: write
 
 env:
-  BASE_REPO: geniusdapeng-collab/workloom-im
+  BASE_REPO: workloom-ai/workloom-im
 
 jobs:
   heartbeat:

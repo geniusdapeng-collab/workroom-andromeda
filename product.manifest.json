@@ -4,7 +4,7 @@
   "role": "operations-hub",
   "displayName": "仙女座运营运维系统",
   "packageName": "workroom-andromeda",
-  "repository": "geniusdapeng-collab/workroom-andromeda",
+  "repository": "workloom-ai/workroom-andromeda",
   "defaultBundle": "platform",
   "demoWorkspaceSlug": "platform-demo",
   "demoMemberNo": "MEM-001",

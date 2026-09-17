@@ -217,7 +217,7 @@ function syncToChild(baseDir, childDir, sc, report, extraGlobs = []) {
       `chore(base-sync): 基座能力对齐 → ${baseSha.slice(0, 8)}（base-sync 自动）\n\n复制 ${copied.length} 文件 · 锚点合并 ${merged.length} 文件${skippedAppendOnly.length ? ` · 迁移跳过 ${skippedAppendOnly.length}` : ""}\n${files}${changed > 30 ? " …" : ""}`);
     committed = true;
   }
-  if (!DRY) writeState(childDir, { baseRepo: readState(childDir)?.baseRepo ?? "geniusdapeng-collab/workloom-im", lastSyncedBaseSha: baseSha, lastSyncAt: new Date().toISOString(), filesTouched: changed, ...(extraGlobs.length || readState(childDir)?.extraExclude ? { extraExclude: extraGlobs.length ? extraGlobs : readState(childDir).extraExclude } : {}) });
+  if (!DRY) writeState(childDir, { baseRepo: readState(childDir)?.baseRepo ?? "workloom-ai/workloom-im", lastSyncedBaseSha: baseSha, lastSyncAt: new Date().toISOString(), filesTouched: changed, ...(extraGlobs.length || readState(childDir)?.extraExclude ? { extraExclude: extraGlobs.length ? extraGlobs : readState(childDir).extraExclude } : {}) });
 
   report.copied = copied; report.merged = merged; report.skippedAppendOnly = skippedAppendOnly;
   report.warnings = warnings; report.changed = changed; report.committed = committed; report.baseSha = baseSha;
@@ -227,7 +227,7 @@ function syncToChild(baseDir, childDir, sc, report, extraGlobs = []) {
 /* ---------------- 模式：detect（心跳检测） ---------------- */
 function modeDetect(childDir) {
   const state = readState(childDir);
-  const baseRepo = state?.baseRepo ?? "geniusdapeng-collab/workloom-im";
+  const baseRepo = state?.baseRepo ?? "workloom-ai/workloom-im";
   const authUrl = TOKEN ? `${BASE_URL.replace("https://", `https://oauth2:${TOKEN}@`)}/${baseRepo}.git` : `${BASE_URL}/${baseRepo}.git`;
   const remoteLine = sh("git", ["ls-remote", authUrl, "main"]);
   const remoteSha = remoteLine.split(/\s/)[0];
@@ -261,7 +261,7 @@ function modeDetect(childDir) {
 /* ---------------- 模式：pull（子仓拉齐） ---------------- */
 function modePull(childDir) {
   const state = readState(childDir);
-  const baseDir = BASE_DIR_OPT || ensureBaseClone(state?.baseRepo ?? "geniusdapeng-collab/workloom-im");
+  const baseDir = BASE_DIR_OPT || ensureBaseClone(state?.baseRepo ?? "workloom-ai/workloom-im");
   const extra = [...(state?.extraExclude ?? []), ...(opt("--extra-exclude") ? opt("--extra-exclude").split(",") : [])];
   const sc = withExtraExclude(loadScope(baseDir), extra);
   const report = { mode: "pull", child: childDir };
