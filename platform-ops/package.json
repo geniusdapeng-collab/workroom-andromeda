@@ -1,0 +1,21 @@
+{
+  "name": "@workloom/platform-ops",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "仙女座运营运维系统 · 平台一方工程能力（PRD V3.0 第十五~二十一章）——一方资产，永不同步到其他仓",
+  "scripts": {
+    "test": "vitest run test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@workloom/base": "workspace:*"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.11"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./accounts": "./src/accounts/index.ts"
+  }
+}

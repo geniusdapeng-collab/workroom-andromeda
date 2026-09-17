@@ -1,0 +1,102 @@
+# ============================================================
+# WorkLoom CI 质量门禁（审计第 5 轮接入）
+# 触发：push / PR to main
+# 内容：产品身份/Bundle 门禁 + typecheck + 全工作区测试（含 DB 集成）+
+#      平台默认包与酒店兼容包双种子 + 全场景套件 + 三端构建 + dsh-gate E6
+# 注意：DB 集成测试必须真实 PG（RUN_DB_TESTS=1）——0.1.1 前全部 skip 曾掩盖 P0（#22）
+# ============================================================
+name: ci-gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    services:
+      postgres:
+        image: pgvector/pgvector:pg17
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: workloom
+          POSTGRES_DB: workloom
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      # 这些是一次性 CI 服务凭据；用表达式装配可避免在仓库文本中形成可误复制的凭据 URL。
+      DATABASE_URL: ${{ format('postgres://{0}:{1}@localhost:5432/workloom', 'postgres', 'workloom') }}
+      DATABASE_APP_URL: ${{ format('postgres://{0}:{1}@localhost:5432/workloom', 'workloom_app', 'workloom_dev_app') }}
+      DATABASE_GATEWAY_URL: ${{ format('postgres://{0}:{1}@localhost:5432/workloom', 'workloom_gateway', 'workloom_dev_gateway') }}
+      APP_DB_PASSWORD: ${{ format('{0}_{1}_{2}', 'workloom', 'dev', 'app') }}
+      GATEWAY_DB_PASSWORD: ${{ format('{0}_{1}_{2}', 'workloom', 'dev', 'gateway') }}
+      JWT_SECRET: ${{ format('{0}-{1}-{2}-{3}-{4}', 'ci', 'gate', 'secret', 'at-least-32', 'characters') }}
+      LLM_PROVIDER: mock
+      IM_DRIVER: mock
+      RUN_DB_TESTS: "1"
+      TOOL_UNVERIFIED_RATE: "0"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Node 24 + pnpm
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: corepack enable && corepack prepare pnpm@10.14.0 --activate
+
+      - name: 依赖
+        run: pnpm install --frozen-lockfile
+
+      - name: 产品身份与行业包治理
+        run: |
+          pnpm product:verify
+          pnpm bundle:governance
+
+      - name: typecheck 全包
+        run: pnpm -r --if-present typecheck
+
+      - name: 迁移 + 平台默认种子 + 兼容回归种子（H-1 完整率 100%）
+        run: |
+          cp .env.example .env
+          pnpm db:migrate
+          pnpm db:seed:platform
+          pnpm db:seed:platform # 平台默认包幂等复跑
+          BUNDLE_DIR=bundles/hotel pnpm db:seed
+          BUNDLE_DIR=bundles/hotel pnpm db:seed # 历史套件兼容包幂等复跑
+
+      - name: 哈希链全库验证（#32 口径）
+        run: pnpm db:verify-chain
+
+      - name: 全工作区测试（DB 集成全开，顺序执行避免共享数据库互扰）
+        run: |
+          pnpm -C packages/industry-contract test
+          pnpm -C packages/shared test
+          pnpm -C packages/base test
+          pnpm -C packages/runtime test
+          pnpm -C platform-ops test
+          pnpm -C apps/server test
+          pnpm -C apps/web test
+          pnpm -C apps/webb test
+          pnpm -C apps/webc test
+          node --test apps/desktop/electron/bootstrap.test.cjs scripts/desktop-app.test.mts
+          pnpm exec vitest run scripts/suite-fixture-preflight.test.ts
+
+      - name: 全场景套件（326 用例）
+        run: pnpm suite
+
+      - name: PC B 端、移动 B 端、移动 C 端三端构建
+        run: |
+          pnpm -C apps/web build
+          pnpm -C apps/webb build
+          pnpm -C apps/webc build
+
+      - name: dsh-gate E6（围栏瀑布 + 事件桥 + H-5 崩溃重放）
+        run: bash scripts/dsh-gate.sh
