@@ -38,7 +38,7 @@ BASE_SHA="$(git -C "$BASE_DIR" rev-parse HEAD)"
 if [ ! -f "$WORKDIR/.workloom-base-sync.json" ]; then
   cat > "$WORKDIR/.workloom-base-sync.json" <<EOF
 {
-  "baseRepo": "geniusdapeng-collab/workloom-im",
+  "baseRepo": "workloom-ai/workloom-im",
   "lastSyncedBaseSha": "$BASE_SHA",
   "lastSyncAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
   "filesTouched": 0,
