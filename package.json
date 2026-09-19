@@ -54,7 +54,10 @@
     "product:verify": "node scripts/verify-product-content.mjs",
     "bundle:governance": "tsx scripts/bundle-governance.mts",
     "bundle:seal": "tsx scripts/bundle-governance.mts --refresh-digests",
-    "bundle:release": "tsx scripts/bundle-governance.mts --refresh-digests --release"
+    "bundle:release": "tsx scripts/bundle-governance.mts --refresh-digests --release",
+    "oss:inventory": "bash scripts/oss-watch.sh --inventory",
+    "oss:check": "bash scripts/oss-watch.sh --check",
+    "test:oss": "node --test scripts/oss-inventory.test.mjs"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
