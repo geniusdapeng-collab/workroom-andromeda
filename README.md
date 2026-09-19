@@ -28,23 +28,25 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-9A7B2D)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-macOS%2013%2B%20%C2%B7%20Apple%20Silicon-black)](https://github.com/workloom-ai/workloom-im/releases)
 [![Runtime](https://img.shields.io/badge/runtime%20foundation-DeepSeek%20Harness-4C6FFF)](https://www.npmjs.com/package/@deepseek-ai/dsh)
-[![Tests](https://img.shields.io/badge/tests-168%20vitest%20%2B%20371%20suite%20%2B%20dsh--gate-green)]()
+[![Tests](https://img.shields.io/badge/tests-vitest%20%2B%20suite%20438%2F459%20%28%E6%9C%AC%E6%9C%BA%E5%AE%9E%E6%B5%8B%20%C2%B7%20%E5%BE%85%E4%BF%AE%2021%29-yellow)]()
+[![Bundle](https://img.shields.io/badge/platform%20bundle-23%E5%B2%97%E4%BD%8D%20%C2%B7%2017%E6%8A%80%E8%83%BD-C9A227)]()
 [![Data](https://img.shields.io/badge/data%20sovereignty-local--first%20PG17-blueviolet)]()
 [![Website](https://img.shields.io/badge/website-workloom.ok.kimi.link-e8b96a)](https://workloom.ok.kimi.link)
 
 </div>
 
 <!-- CAPABILITIES:BEGIN -->
-<!-- 本区块由 scripts/generate-capabilities.mjs 自动生成（2026-09-02），请勿手改；重跑 pnpm capabilities 更新 -->
+<!-- 本区块由 scripts/generate-capabilities.mjs 自动生成（2026-09-19），请勿手改；重跑 pnpm capabilities 更新 -->
 
 ## 🧩 系统能力速览（自动生成 · 与代码同步）
 
 - 🖥 **三端应用（开箱即看）**：PC 端 · B 端工作台 · 移动端 · B 端高保真 · 移动端 · C 端 AI 服务前台
-- 🏨 **行业 Bundle（垂直能力包）**：bundles/hotel/
+- 🏨 **行业 Bundle（垂直能力包）**：bundles/ai-pm/ · bundles/hotel/ · bundles/platform/
+- 🧑‍💼 **数字员工与数字人（本仓自带）**：数字员工中心（`/agents`） · 织伴数字人（Live2D 常驻浮层） · 语音与口型引擎 · Live2D 渲染后端与资产
 - 🖐 **操作电脑能力（本仓自带 · 可装生产工作站）**：computer-use 三层感知（65 动作） · HTTP 远程驱动 + MCP server
 - 🤖 **AI 自动化引擎（系统内置能力）**：围栏 DSL 引擎 · 技能保鲜环（下行分发） · L2 编排（ASK/QUEST） · 夜班自动运行 · 模型路由 · 五元事件 + RLS 隔离 等 10 项
 - ✅ **验证与质量（工程纪律）**：一键安装（bootstrap） · 主测试套件 · 发布门禁 · 五元事件验链 · Agent 能力巡游 · 环境自检
-- 🎁 **演示与交付资产**：高保真演示页 ×6 · 官网静态站 · 自带技能 ×4 · 能力导览 PPT · Mock 数据体系
+- 🎁 **演示与交付资产**：高保真演示页 ×6 · 官网静态站 · 自带技能 ×5 · 能力导览 PPT · Mock 数据体系
 
 > 📖 完整能力导览（含截图与体验路径）：[docs/capabilities.auto.md](docs/capabilities.auto.md) ｜ 🤖 AI Agent 入口：[AGENTS.md](AGENTS.md) ｜ 🎯 首启必跑：`pnpm preview:all`
 <!-- CAPABILITIES:END -->
@@ -95,24 +97,50 @@ WorkLoom 的答案是：**大模型是蒸汽机，企业 Agent IM 是织机。**
 </p>
 
 <p align="center">
-  <img src="docs/images/shots/pc-approvals.png" alt="审批中心" width="46%"/>
-  <img src="docs/images/shots/pc-nightshift.png" alt="夜班中心" width="46%"/><br/>
-  <sub>审批中心（P4 · 决策收件箱，推进/校准/制动三手势）｜ 夜班中心（P9 · 夜班值守班组频道与峰谷计量）</sub>
+  <img src="docs/images/shots/pc-agents.png" alt="数字员工 · 人机混编通讯录（平台运营 23 个岗位）" width="46%"/>
+  <img src="docs/images/shots/pc-platform-account-ops.png" alt="账号运营（平台专属页）" width="46%"/><br/>
+  <sub>数字员工（/agents · 人机混编通讯录：平台运营 23 个岗位，含版本、围栏绑定、30 天战绩与段位）｜ 账号运营（/platform/account-operations · 平台账户「用 AI 运维 AI」）</sub>
 </p>
 
 <p align="center">
-  <img src="docs/images/shots/pc-chairman.png" alt="董事长视图 · 数字CEO" width="46%"/>
-  <img src="docs/images/shots/pc-skills.png" alt="技能中心" width="46%"/><br/>
-  <sub>董事长视图（P21 · 数字CEO 授权/裁决/评议/汰换）｜ 技能中心（P6 · 技能市场与自建技能）</sub>
+  <img src="docs/images/shots/pc-approvals.png" alt="审批中心" width="46%"/>
+  <img src="docs/images/shots/pc-nightshift.png" alt="夜班中心" width="46%"/><br/>
+  <sub>审批中心（/approvals · 决策收件箱，推进/校准/制动三手势）｜ 夜班中心（/night · 夜班值守班组频道与峰谷计量）</sub>
+</p>
+
+<p align="center">
+  <img src="docs/images/shots/pc-inbox.png" alt="统一待办" width="46%"/>
+  <img src="docs/images/shots/pc-memory.png" alt="组织记忆" width="46%"/><br/>
+  <sub>统一待办（/inbox · 跨工作区聚合）｜ 组织记忆（/memory · 三级作用域 + 语义检索 + 来源归因）</sub>
+</p>
+
+<p align="center">
+  <img src="docs/images/shots/pc-skills.png" alt="技能中心" width="46%"/>
+  <img src="docs/images/shots/pc-exams.png" alt="考试院" width="46%"/><br/>
+  <sub>技能中心（/skills · 平台运营包 17 个技能）｜ 考试院（/exams · 数字员工上岗/复考，平台运营考题集）</sub>
+</p>
+
+<p align="center">
+  <img src="docs/images/shots/pc-events.png" alt="事件账本" width="46%"/>
+  <img src="docs/images/shots/pc-chairman.png" alt="经营驾驶舱 · 数字CEO" width="46%"/><br/>
+  <sub>事件账本（/events · 五元事件 + SHA-256 哈希链）｜ 经营驾驶舱（/executive · 数字CEO 授权/裁决/评议/汰换）</sub>
+</p>
+
+### 数字人 · 织伴（Live2D 常驻）
+
+<p align="center">
+  <img src="docs/images/shots/pc-welcome-mate.png" alt="织伴数字人 · 首装开场" width="46%"/>
+  <img src="docs/images/shots/pc-mate-chat.png" alt="织伴 · 对话/设置/记忆面板" width="46%"/><br/>
+  <sub>织伴开场（S0–S4 全身像登场 + 语音字幕）｜ 织伴面板（聊聊 / 设置 / 记忆：换人设、换音色、看得见 AI 记住了什么）</sub>
 </p>
 
 ### 移动端（:3001 高保真演示 / :3002 C 端服务前台）
 
 <p align="center">
   <img src="docs/images/shots/mobile-b-home.png" alt="移动 B 端 · 经营主页" width="30%"/>
-  <img src="docs/images/shots/mobile-b-report.png" alt="移动 B 端 · 服务前台战报" width="30%"/>
+  <img src="docs/images/shots/mobile-b-agents.png" alt="移动 B 端 · 数字员工" width="30%"/>
   <img src="docs/images/shots/mobile-c-chat.png" alt="移动 C 端 · AI 服务前台对话" width="30%"/><br/>
-  <sub>移动 B 端经营主页（数据与 PC 同源）｜ 移动 B 端服务前台掌上战报 ｜ C 端 AI 服务前台（住客真实问答）</sub>
+  <sub>移动 B 端经营主页（数据与 PC 同源）｜ 移动 B 端数字员工名册 ｜ C 端 AI 服务前台对话</sub>
 </p>
 
 ---
@@ -461,15 +489,40 @@ WorkLoom 没有重复造 Agent 运行时的轮子，而是**站在 DeepSeek Harn
 
 配套界面：**P32 账号运营中心**（五看板：账号大盘/安全/权限审计/伙伴授权/会话密钥 + 账号域异常台账）。
 
+## 四.六、数字员工名册与数字人（平台运营团队的在岗证明）
+
+仙女座用 WorkLoom 运营客户，也要用 WorkLoom 运营自己——这两件事都落在同一套能力上：
+
+**① 数字员工名册（`/agents` · 人机混编通讯录）**
+
+- 平台运营团队随包 **23 个岗位**（账号专员 / 登录卫士 / 生命周期专员 / 权限审计员 / 伙伴瞭望员 / 密钥保管员 / 账单官 / 额度对账员 / 包版本官 / 发布评审员 / 事故响应员 / 洞察分析师 / 策略工程师 / 效果评估师 / 客户健康官 / 续约瞭望员 / 知识运营 / 巡检员 ……）；
+- 每位员工都有平台档案：身份与来源 Bundle、**围栏授权逐条对账**（悬空标红）、绑定技能包、运行约束、**30 天战绩**（动作数 / 采纳率 / 被驳回 / 积分与谷时占比）与等级段位；「派遣」就地建任务线程；
+- 夜班岗位 22:00–08:00 自动上线（青脉冲），只读岗位标绿（无写工具，物理上不能改客户数据）。
+
+**② 数字人 · 织伴（LoomMate · 全页面常驻）**
+
+<p align="center">
+  <img src="docs/images/shots/pc-mate-chat.png" alt="织伴数字人：Live2D 形象 + 对话/设置/记忆面板" width="72%"/><br/>
+  <sub>织伴：Live2D 数字人常驻浮层，可切换人设与音色、语音播报、随时对话；记忆面板让「AI 记住了什么」完全透明</sub>
+</p>
+
+- **形象**：Live2D 渲染（`pixi-live2d-display` + Cubism core，官方示例模型 Mao，可商用许可），风格化 2D 绕开写实 3D 恐怖谷，纯 WebGL；
+- **驱动四要素**：口型（语音边界 → 逐字开口度 + 快开慢收平滑）、表情（mood → expression）、动作（gesture → motion）、视线追随（鼠标驱动注视，无操作时自主游移）；
+- **三态共存**：小角落 / 大形象 / **屏保**（全屏守护：红色事件中央强提醒、Esc 退出），可拖拽吸附、可收小球、可隐藏为边缘把手；
+- **值班场景**：SLO 违约、KMS/密钥告警、客户异常登录等 P0 事件的**兜底播报者**——夜班值班工程师人不在时，织伴聚合非 P0、屏保守着全场，清晨把决策包递到值班人手里；
+- **三条铁律**：不替人决策（只汇总与提醒）、不打扰（勿扰 + 聚合）、不装在线（状态与真实回执一致）。
+
+> 平台运营视角的额外价值：`/agents` 的 30 天战绩 + 考试院成绩 + 审批通过率三张表，就是**平台运营团队自己的 SLO 证据链**——用 AI 运营 AI 时，谁在岗、干了什么、干得怎么样，客户可查、自己也骗不了自己。
+
 ## 五、系统架构与业务闭环
 
 <p align="center"><img src="docs/images/architecture.png" alt="WorkLoom 系统架构" width="88%"/></p>
 
-五层结构自上而下：**体验层**（工作台 Web 端 / IM 通道 / Mac 桌面包）→ **服务层**（Hono + tRPC v11，PG 行级安全）→ **能力层**（自研九域护城河，WorkData 数据大脑为核心底座）→ **运行时地基**（DeepSeek Harness seam 适配）→ **数据层**（PostgreSQL 17 + pgvector，五元事件 append-only + hash chain）。
+五层结构自上而下：**体验层**（平台运营台 / 移动值班端 / C 端服务前台 / 织伴数字人 / IM 通道）→ **服务层**（Hono + tRPC v11，PG 行级安全，平台域与客户域物理隔离，platform_action_log 客户可读）→ **能力层**（平台运营包 23 岗位 / 17 技能 / R-PL 围栏 + 基座十域零改动继承，WorkData 数据大脑为核心底座）→ **运行时地基**（DeepSeek Harness seam 适配）→ **数据层**（PostgreSQL 17 + pgvector，五元事件 append-only + hash chain）。
 
 <p align="center"><img src="docs/images/business-loop.png" alt="WorkLoom 业务核心闭环" width="88%"/></p>
 
-**设定航线 → 护栏判定 → 班组执行 → 夜班班组 → 08:30 战报 → 主理人拍板**，六节点闭环；「校准写回」与「沉淀」两条回路让每一次协作都让系统更懂这家企业。底部安全底线带（紧急制动 / 黑匣子 / 失败转人工）兜住一切异常。
+**信号入站 → 围栏分级 → 数字员工执行 → 夜班值守 → 08:30 决策包 → 人来做裁决**，六节点闭环；「校准写回」与「沉淀」两条回路让每一次协作都让系统更懂这家企业。底部安全带（紧急制动 / 黑匣子 / 失败转人工 + 平台永不替客户审批 / break-glass 双人制）兜住一切异常。
 
 ---
 
@@ -490,7 +543,7 @@ WorkLoom 没有重复造 Agent 运行时的轮子，而是**站在 DeepSeek Harn
 | `packages/base/wizard` | **行业落地向导**：首次装机的状态机与编排（技能一/二/三→交付配置），行业内容零预置（D18） |
 | `skills/official/` | 官方套件：`industry-entry/`（行业落地四技能+快速上线模板）、`product-feedback/`（反哺分析技能）（D17） |
 | `vendor/{dsh,dsh-im}` | dsh 0.1.2-rc.1 审计基线（只读）/ dsh IM 通道插件（MIT 回馈） |
-| `scripts/` | migrate / seed / demo / verify-chain / **suite（371 场景用例）** / dsh-gate |
+| `scripts/` | migrate / seed / seed-platform（平台运营包）/ demo / verify-chain / **suite（459 场景用例）** / dsh-gate |
 
 ### 6.2 最小跑通路径
 
@@ -512,7 +565,7 @@ pnpm typecheck         # 全仓类型检查
 pnpm test              # vitest 168 例（base 152 + runtime 12 + shared 4）
 RUN_DB_TESTS=1 pnpm -C packages/base test   # PG 集成测试（默认 skip）
 pnpm db:verify-chain   # 哈希链全库重算（篡改检测）
-pnpm suite             # 371 条全场景用例（服务层 344 + HTTP E2E 27）
+pnpm suite             # 459 条全场景用例（服务层 414 + HTTP E2E 45；本机实测 438/459，见下方说明）
 pnpm demo              # 端到端演示剧本
 pnpm doctor            # 环境自检
 
@@ -566,7 +619,7 @@ LLM_MODEL=deepseek-chat
 | [新客户首次接入完整流程](docs/02-新客户首次接入完整流程.md) | 任意行业新客户 | 从下载到正式使用的通用接入流程（约 30 分钟） |
 | [功能清单（用户版）](docs/03-功能清单-用户版.md) | 所有人 | 全部功能按使用场景分类，业务语言描述 |
 | [行业落地向导（用户版）](docs/04-行业落地向导-用户版.md) | 新客户 / 交付 | 落地向导四步全解 |
-| [测试套件用例清单](docs/SUITE.md) | 开发者 / AI 助手 | 371 条场景用例全表（`pnpm suite` 运行时导出） |
+| [测试套件用例清单](docs/SUITE.md) | 开发者 / AI 助手 | 459 条场景用例全表（`pnpm suite` 运行时导出） |
 | [架构决策记录](docs/DECISIONS.md) | 开发者 | ADR：为什么这么设计（含否决方案论证） |
 | [审计记录](docs/AUDIT.md) | 开发者 / 安全 | 六轮审计的问题、根因、修复与门禁实测 |
 | [CHANGELOG](CHANGELOG.md) | 所有人 | 版本变更历史（Keep a Changelog 格式） |
@@ -577,7 +630,7 @@ LLM_MODEL=deepseek-chat
 
 ## 九、路线图
 
-- ✅ 当前：Mac 桌面包一键启航 + 官网 + CI 质量门禁（371 场景用例 + 哈希链验证，每次 push 全量执行）
+- ✅ 当前：Mac 桌面包一键启航 + 官网 + CI 质量门禁（459 场景用例 + 哈希链验证，每次 push 全量执行）
 - ✅ v1.10 自我进化飞轮 P0（D24）：反馈 → 记忆 → 行为校准（偏好注入主链路 / 记忆提炼器 / 进化积分卡 / P23 组织记忆中心）
 - ✅ dsh 0.1.2-rc.1 已集成（subagent Codex / Claude Code 按需安装；E6 dsh-gate 门禁全绿）
 - 🔜 Intel Mac 包 / Windows 包

@@ -17,7 +17,7 @@
   "scripts": {
     "dev": "node scripts/dev-note.js && concurrently -k -n server,web \"pnpm -C apps/server dev\" \"pnpm -C apps/web dev\"",
     "db:migrate": "tsx --env-file=.env scripts/migrate.ts",
-    "db:seed": "tsx --env-file=.env scripts/seed.ts",
+    "db:seed": "BUNDLE_DIR=bundles/hotel tsx --env-file=.env scripts/seed.ts",
     "db:seed:platform": "tsx --env-file=.env scripts/seed-platform.ts",
     "demo": "TOOL_UNVERIFIED_RATE=0 tsx --env-file=.env scripts/demo.ts",
     "doctor": "bash scripts/doctor.sh",
