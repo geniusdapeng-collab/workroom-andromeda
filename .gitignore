@@ -34,3 +34,7 @@ release/
 
 # 发布时按环境生成的 Bundle 独立公钥环；不得误提交为仓内可变资产
 build/bundle-trust.json
+
+# 手绘白板解说引擎：venv 随机器重建；渲染任务产物不入库
+scripts/whiteboard/engine/.venv/
+var/whiteboard/
