@@ -64,7 +64,7 @@
       "node-pty"
     ],
     "overrides": {
-      "@workloom/ui@0.1.14": "https://cnb.cool/workloom-ai/workloom-im/-/releases/download/ui-v0.1.14/workloom-ui-0.1.14.tgz"
+      "@workloom/ui@0.1.15": "https://cnb.cool/workloom-ai/workloom-im/-/releases/download/ui-v0.1.15/workloom-ui-0.1.15.tgz"
     }
   },
   "devDependencies": {
