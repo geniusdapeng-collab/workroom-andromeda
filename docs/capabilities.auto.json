@@ -2,7 +2,7 @@
  "schema": "workloom.capabilities/v2",
  "repo": "workroom-andromeda",
  "description": "仙女座运营运维系统 · 用 WorkLoom 运营 WorkLoom",
- "generatedAt": "2026-10-02T18:27:12.810Z",
+ "generatedAt": "2026-10-02T19:19:18.851Z",
  "demoPages": [
   "service-front-b-mobile.html",
   "service-front-b-pc.html",
