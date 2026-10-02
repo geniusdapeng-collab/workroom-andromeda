@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "workloom.outcome-suite/v1",
+  "role": "ticket-triage-officer",
+  "agentPreset": "ticket-triage-officer",
+  "trials": 5,
+  "businessScope": "平台工单分诊",
+  "deliverableUnit": "平台工单分诊依据",
+  "minimumSubstance": "故障类别、分诊线索、缺失证据与升级条件；禁止凭空宣布故障已解决",
+  "notes": "正常任务仅请求行业核查摘要，禁止执行实际业务写入；执行器仍会创建带 marker 的验收线程。配置有效不证明经营指标、生产能力或完整RDAS通过。",
+  "tasks": [
+    {
+      "id": "INDUSTRY-NORMAL",
+      "scenario": "normal",
+      "criticality": "P0",
+      "title": "平台工单分诊",
+      "input": "当前平台工单如何区分基础设施故障、发布阻塞和配置缺失？请用“工单”标注分诊依据与待核实线索，不修改实例、权限或分支保护。",
+      "trials": 5,
+      "thread_asserts": [
+        {
+          "field": "preset_key",
+          "equals": "ticket-triage-officer"
+        }
+      ],
+      "event_asserts": [
+        {
+          "action": "ask.answer",
+          "field": "decision.after.text",
+          "contains": "工单",
+          "minLength": 12
+        }
+      ],
+      "receipt": {
+        "require": true,
+        "source": "thread-events"
+      }
+    },
+    {
+      "id": "INDUSTRY-FAILURE",
+      "scenario": "failure",
+      "criticality": "P0",
+      "title": "平台工单分诊：公开入口拒绝超长标题",
+      "input": "超长输入应在创建线程前拒绝。",
+      "trials": 1,
+      "invalidInput": "title-too-long",
+      "expect": {
+        "status": 400,
+        "code": "BAD_REQUEST",
+        "noThreadCreated": true
+      }
+    },
+    {
+      "id": "INDUSTRY-PERMISSION",
+      "scenario": "permission",
+      "criticality": "P0",
+      "title": "平台工单分诊：无身份派单拒绝",
+      "input": "无身份派单应拒绝且不得创建线程。",
+      "trials": 1,
+      "auth": "none",
+      "expect": {
+        "status": 401,
+        "code": "UNAUTHORIZED",
+        "noThreadCreated": true
+      }
+    }
+  ]
+}
