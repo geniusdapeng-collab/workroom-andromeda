@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "repo": "workloom-ai/workroom-andromeda",
-  "revision": 12,
+  "revision": 18,
   "tasks": {
     "88": {
       "number": 88,
@@ -10,26 +10,26 @@
       "attempts": {},
       "admission": {
         "number": 88,
-        "headSha": "f116acd13fc86c3f095d529b4601ece90042eb2d",
+        "headSha": "7abe135ad508a1f53d25ae40202acdffbff4c801",
         "mainSha": "0c9ab944b57eb13116a95b95c0c1643e3bfb3f31",
-        "filesHash": "b814ff36fd08ff01b966812e57c78938197df55dd03afc29e85a7fb580499a6a",
+        "filesHash": "3452e39e660b2f72a68daa9d8868d6a7baf00c768e2f50edbbb553131962cd41",
         "scopes": [
           "protocol"
         ],
         "owner": "admission/pr-88",
         "generation": {
-          "protocol": 2
+          "protocol": 3
         }
       },
-      "updatedAt": 1791249030012
+      "updatedAt": 1791307667192
     }
   },
   "leases": {
     "protocol": {
       "owner": null,
-      "generation": 2,
-      "acquiredAt": 1791249030012,
-      "expiresAt": 1791249030012
+      "generation": 3,
+      "acquiredAt": 1791307667192,
+      "expiresAt": 1791307667192
     }
   },
   "releases": {},
@@ -231,6 +231,105 @@
       },
       "previous": "3b88f73af4844148447f593996a7f35c7eaa2caa512082bceca83b45e5b9f25e",
       "digest": "1e4a42deb13e261e04e477fbe93979828c05a163efc740bc7aa6e1bce1a9b58c"
+    },
+    {
+      "sequence": 13,
+      "at": "2026-10-06T17:27:47.192Z",
+      "kind": "lease_acquire",
+      "data": {
+        "scopes": [
+          "protocol"
+        ],
+        "owner": "admission/pr-88",
+        "generation": {
+          "protocol": 3
+        }
+      },
+      "previous": "1e4a42deb13e261e04e477fbe93979828c05a163efc740bc7aa6e1bce1a9b58c",
+      "digest": "76dfc4250b6d8095f4ffb7c0388e7d24438e7a9c57600c5a997f7fa0743fd030"
+    },
+    {
+      "sequence": 14,
+      "at": "2026-10-06T17:27:47.192Z",
+      "kind": "lease_release",
+      "data": {
+        "scopes": [
+          "protocol"
+        ],
+        "owner": "admission/pr-88",
+        "generation": {
+          "protocol": 3
+        }
+      },
+      "previous": "76dfc4250b6d8095f4ffb7c0388e7d24438e7a9c57600c5a997f7fa0743fd030",
+      "digest": "d5020a785753cf2ea710c72e576d8d80863e6674bf8f51b12acdbfc2deda7ea3"
+    },
+    {
+      "sequence": 15,
+      "at": "2026-10-06T17:27:47.192Z",
+      "kind": "source_admitted",
+      "data": {
+        "number": 88,
+        "headSha": "7abe135ad508a1f53d25ae40202acdffbff4c801",
+        "mainSha": "0c9ab944b57eb13116a95b95c0c1643e3bfb3f31",
+        "filesHash": "3452e39e660b2f72a68daa9d8868d6a7baf00c768e2f50edbbb553131962cd41",
+        "scopes": [
+          "protocol"
+        ],
+        "owner": "admission/pr-88",
+        "generation": {
+          "protocol": 3
+        }
+      },
+      "previous": "d5020a785753cf2ea710c72e576d8d80863e6674bf8f51b12acdbfc2deda7ea3",
+      "digest": "63d18c2c50c87d4ff1f143ff3a608cc7ef916887ae8374af3d66a153aaac283d"
+    },
+    {
+      "sequence": 16,
+      "at": "2026-10-06T17:27:47.192Z",
+      "kind": "task",
+      "data": {
+        "number": 88,
+        "patch": {
+          "admission": {
+            "number": 88,
+            "headSha": "7abe135ad508a1f53d25ae40202acdffbff4c801",
+            "mainSha": "0c9ab944b57eb13116a95b95c0c1643e3bfb3f31",
+            "filesHash": "3452e39e660b2f72a68daa9d8868d6a7baf00c768e2f50edbbb553131962cd41",
+            "scopes": [
+              "protocol"
+            ],
+            "owner": "admission/pr-88",
+            "generation": {
+              "protocol": 3
+            }
+          }
+        }
+      },
+      "previous": "63d18c2c50c87d4ff1f143ff3a608cc7ef916887ae8374af3d66a153aaac283d",
+      "digest": "9262c7e448440f023e618b049d098caa70921dbb315b7bd4139f7b359390aace"
+    },
+    {
+      "sequence": 17,
+      "at": "2026-10-06T17:27:47.192Z",
+      "kind": "installation_prepared",
+      "data": {
+        "installer": 88,
+        "headSha": "7abe135ad508a1f53d25ae40202acdffbff4c801",
+        "mainSha": "0c9ab944b57eb13116a95b95c0c1643e3bfb3f31"
+      },
+      "previous": "9262c7e448440f023e618b049d098caa70921dbb315b7bd4139f7b359390aace",
+      "digest": "2d3e479f2854283c2199479c320f566d8b35b0336c6b5163db0361732ccbb4b0"
+    },
+    {
+      "sequence": 18,
+      "at": "2026-10-06T17:27:46.631Z",
+      "kind": "transaction",
+      "data": {
+        "id": "install-state:88:7abe135ad508a1f53d25ae40202acdffbff4c801"
+      },
+      "previous": "2d3e479f2854283c2199479c320f566d8b35b0336c6b5163db0361732ccbb4b0",
+      "digest": "02c1f091e57bede16b7eec6a39aff33cc8de78181ab8230bf1649fdbccf40a53"
     }
   ]
 }
