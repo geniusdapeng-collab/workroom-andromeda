@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "repo": "workloom-ai/workroom-andromeda",
-  "revision": 63,
+  "revision": 66,
   "tasks": {
     "86": {
       "number": 86,
@@ -1412,7 +1412,7 @@
     },
     "91": {
       "number": 91,
-      "status": "developing",
+      "status": "waiting_ci",
       "firstSeen": 1791312740847,
       "attempts": {},
       "admission": {
@@ -1428,7 +1428,154 @@
           "protocol": 6
         }
       },
-      "updatedAt": 1791312742703
+      "updatedAt": 1791313200709,
+      "headSha": "7e3a524376fc950f2f607676bbe97ab5b8f84c5f",
+      "mainSha": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+      "branch": "chore/protocol-onboarding-delivery-0b3ca2b2eae4a920-99b24cf23beb",
+      "intent": {
+        "taskId": "T-2026-1006-2806",
+        "ready": true,
+        "dependsOn": [],
+        "releases": []
+      },
+      "developerReview": {
+        "schemaVersion": 1,
+        "provider": "codex",
+        "repo": "workloom-ai/workroom-andromeda",
+        "number": 91,
+        "headSha": "7e3a524376fc950f2f607676bbe97ab5b8f84c5f",
+        "mainSha": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+        "policyHash": "5e4b7e077e29ef72e220a466dd6bd0dd102e11a780295d8632fa18aa34484c50",
+        "reviewedFiles": [
+          ".workloom-delivery-install.json",
+          "scripts/delivery/git-state.mjs",
+          "scripts/delivery/queue.test.mjs"
+        ],
+        "filesHash": "7d9d594424ecc8b2fa088ea1928230b39fbcfa4352d81ac7446e6b2eeafa5a9b",
+        "dependsOn": [],
+        "ciPolicyChanges": [
+          {
+            "id": "CI-001",
+            "rationale": "Current Codex completely reviewed the immutable-SHA read and direct model/API dependencies. Target bytes match the reviewed canonical base implementation. Authenticated canonical read uses branch commit SHA and decoded/text raw state, validates full repository-bound digest chain, and returns empty only after explicit 404 plus readable full-SHA main proof. Permission, malformed/foreign/corrupt content and missing raw state fail. Real Git mutation, ordinary fast-forward CAS and exact transaction recovery after lost acknowledgement remain. Only explicit ls-remote/fetch 429 receives two bounded read delays; no blind push/merge retry, platform AI or NPC call is introduced. Actual tests at this exact target source retain real bare Git CAS/lost-ack and CLI assertions."
+          },
+          {
+            "id": "CI-002",
+            "rationale": "Target bytes match the fully reviewed canonical regression. Added ten behavior tests for immutable SHA API read/decoded/text result, positive-only absence, permissions/transport/hidden main, malformed/foreign/corrupt state and bounded 429 read recovery/exhaustion/write exclusion. Actual CLI fixture derives branch SHA/state bytes from real bare Git, preserving previous CLI, six-writer CAS and lost acknowledgement coverage. Exact post-commit installed target suite passed with zero failures; one non-applicable shared UI publication case remains explicitly skipped. Original product pipelines and all hardened target adapter/checker/tests are unchanged."
+          }
+        ],
+        "ciPolicyChangesHash": "872d87911a04837b33dc99d5dcfe2d2849e450c173dc5d387d7417101fa7e8cd",
+        "tests": [
+          {
+            "command": "/Users/mac/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node --test scripts/delivery/queue.test.mjs scripts/ci/protocol-rules.test.mjs",
+            "exitCode": 0,
+            "headSha": "7e3a524376fc950f2f607676bbe97ab5b8f84c5f",
+            "finishedAt": "2026-10-06T18:57:04.918Z",
+            "result": "d unverified release (0.109208ms)\n✔ a lease acquired by another developer during snapshot reading blocks candidate creation (0.182583ms)\n✔ a reused task id or a ready PR body cannot release a developer lease or admit a candidate (0.149667ms)\n✔ candidate body or origin mutation is rejected before sending a platform merge (0.574916ms)\n✔ runner deadline uses elapsed time independently of injected lease/calendar time and preserves the exact boundary (0.143ms)\n✔ legacy review capacity never reads paid build history and cannot block unrelated reviewed source (0.035333ms)\n✔ release enqueue is idempotent by frozen source/kind/version and keeps integration separate (0.096833ms)\n✔ both UI and desktop dispatch pass the explicit frozen SHA to the whole build, independently of current branch SHA (0.440958ms)\n﹣ manual UI event and delivery dispatch use the same actual publishing job and native lock; the scheduler only launches and observes (4.4365ms) # This product has no shared UI publishing lane\n✔ release launch intent survives lost acknowledgement and forbids duplicate publication (0.423541ms)\n✔ release failures use the latest durable attempt count and park after two launches (0.210958ms)\n✔ lost release launch cannot adopt a different manual build with the same source/event (0.215375ms)\n✔ UI release verifies the real Platform API JSON decoding contract and rejects unreadable registration or different bytes (1.746458ms)\n✔ release verifies actual tag source, manifest identity and every downloaded digest (0.259625ms)\n✔ private release download authenticates only the official first request and hashes the actual redirected bytes (0.431458ms)\n✔ private release permission, unsafe redirect, empty/oversized stream and malformed manifest remain explicit failures (0.808834ms)\n✔ a release redirect loop is bounded and every later same-origin or foreign request omits the token (0.162042ms)\nℹ tests 115\nℹ suites 5\nℹ pass 114\nℹ fail 0\nℹ cancelled 0\nℹ skipped 1\nℹ todo 0\nℹ duration_ms 11330.126\n",
+            "logPath": "/Users/mac/Documents/Codex/2026-10-05/agent-pr-pr-pr/work/account-live-install/ledger-tests/workloom-ai-workroom-andromeda.txt"
+          }
+        ],
+        "reviewedAt": "2026-10-06T18:58:23.957Z",
+        "summary": "Actual current Codex review of the already-active target update. Canonical source implementation and dependencies were completely read (A origin); actual target copies match those bytes (B). The complete exact changed paths, manifest provenance/digests and zero-change repeat installation were checked. Only ledger read implementation/tests/package provenance change; original CI, business identity, isolation, stronger target checker/test bytes and aliases remain. Actual post-commit target regression and source/main/policy/file/CI IDs are bound in this receipt. No unresolved blocking finding. Requires real original machine CI and native immutable candidate ordinary two-parent integration; no first-install privileged merge, human Approve, platform model or NPC execution.",
+        "passed": true,
+        "id": "6d26fb63ed0d25735b23c05cb3522f8c3609e8f6d8814f8886f5a66189f82385"
+      },
+      "reviewSnapshot": {
+        "repo": "workloom-ai/workroom-andromeda",
+        "number": 91,
+        "pull": {
+          "number": 91,
+          "state": "open",
+          "title": "feat(base): 安装普通研发自动交付 [T-2026-1006-2806]",
+          "body": "原仓必需检查保留，新增 Codex 审查回执 和交付回归。安装范围及四问见 Issue #90 [T-2026-1006-2806]。\n\n<!-- delivery-install:0b3ca2b2eae4a920cf618a4a2bd57e780df5208bc5ef42ef1498b52dbaab4a03 -->\n\n<!-- workloom-delivery\n{\n  \"task_id\": \"T-2026-1006-2806\",\n  \"ready\": true,\n  \"depends_on\": [],\n  \"releases\": []\n}\n-->",
+          "author": {
+            "username": "cnb.dYiF05kxAGA",
+            "nickname": "Genius",
+            "email": "XYpmztfpCvez6l8z5BBAvJ+cnb.dYiF05kxAGA@noreply.cnb.cool",
+            "is_npc": false
+          },
+          "reviewers": [],
+          "labels": [],
+          "base": {
+            "ref": "refs/heads/main",
+            "sha": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+            "repo": {
+              "id": "2100397232930775040",
+              "name": "workroom-andromeda",
+              "path": "workloom-ai/workroom-andromeda",
+              "web_url": "https://cnb.cool/workloom-ai/workroom-andromeda"
+            }
+          },
+          "head": {
+            "ref": "refs/heads/chore/protocol-onboarding-delivery-0b3ca2b2eae4a920-99b24cf23beb",
+            "sha": "7e3a524376fc950f2f607676bbe97ab5b8f84c5f",
+            "repo": {
+              "id": "2100397232930775040",
+              "name": "workroom-andromeda",
+              "path": "workloom-ai/workroom-andromeda",
+              "web_url": "https://cnb.cool/workloom-ai/workroom-andromeda"
+            }
+          },
+          "blocked_on": "unblocked",
+          "merged_by": {
+            "is_npc": false
+          },
+          "mergeable_state": "mergeable",
+          "is_wip": false,
+          "is_merged": false,
+          "is_force_merged": false,
+          "statuses": {}
+        },
+        "headSha": "7e3a524376fc950f2f607676bbe97ab5b8f84c5f",
+        "mainSha": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+        "files": [
+          ".workloom-delivery-install.json",
+          "scripts/delivery/git-state.mjs",
+          "scripts/delivery/queue.test.mjs"
+        ],
+        "intent": {
+          "taskId": "T-2026-1006-2806",
+          "ready": true,
+          "dependsOn": [],
+          "releases": []
+        },
+        "headTime": 1791312731000,
+        "mergeBase": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+        "checkErrors": [],
+        "checkSha": null,
+        "hasFailedChecks": false,
+        "ciPolicyChanges": [
+          {
+            "id": "CI-001",
+            "file": "scripts/delivery/git-state.mjs",
+            "before": {
+              "ref": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+              "path": "scripts/delivery/git-state.mjs",
+              "absent": false
+            },
+            "after": {
+              "ref": "7e3a524376fc950f2f607676bbe97ab5b8f84c5f",
+              "path": "scripts/delivery/git-state.mjs",
+              "absent": false
+            },
+            "digest": "98e2519ac147ee687d1a72877821edd3a0f942159055edb180a5946787f0c216"
+          },
+          {
+            "id": "CI-002",
+            "file": "scripts/delivery/queue.test.mjs",
+            "before": {
+              "ref": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+              "path": "scripts/delivery/queue.test.mjs",
+              "absent": false
+            },
+            "after": {
+              "ref": "7e3a524376fc950f2f607676bbe97ab5b8f84c5f",
+              "path": "scripts/delivery/queue.test.mjs",
+              "absent": false
+            },
+            "digest": "aa49fc489fcc7fa390c851b110ab05bf2410918b0aeeb10fce58fa2626319bad"
+          }
+        ]
+      }
     }
   },
   "leases": {
@@ -4154,6 +4301,189 @@
       },
       "previous": "941f9f1fd123b119c309fa8189bbafb36a01dca1f08b1f6a6e97cada149ecf04",
       "digest": "ad723da998026583b78d5eccd9ea2f52e02c293b6f8e91492026259b145ed692"
+    },
+    {
+      "sequence": 64,
+      "at": "2026-10-06T19:00:00.709Z",
+      "kind": "developer_review",
+      "data": {
+        "number": 91,
+        "id": "6d26fb63ed0d25735b23c05cb3522f8c3609e8f6d8814f8886f5a66189f82385",
+        "headSha": "7e3a524376fc950f2f607676bbe97ab5b8f84c5f",
+        "mainSha": "99b24cf23beb80be1ac2d83f31327eba26ca2da5"
+      },
+      "previous": "ad723da998026583b78d5eccd9ea2f52e02c293b6f8e91492026259b145ed692",
+      "digest": "366898e606ac81100f778545141453248468918f66978a0d85e377a525ce27f3"
+    },
+    {
+      "sequence": 65,
+      "at": "2026-10-06T19:00:00.709Z",
+      "kind": "task",
+      "data": {
+        "number": 91,
+        "patch": {
+          "status": "waiting_ci",
+          "headSha": "7e3a524376fc950f2f607676bbe97ab5b8f84c5f",
+          "mainSha": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+          "branch": "chore/protocol-onboarding-delivery-0b3ca2b2eae4a920-99b24cf23beb",
+          "intent": {
+            "taskId": "T-2026-1006-2806",
+            "ready": true,
+            "dependsOn": [],
+            "releases": []
+          },
+          "developerReview": {
+            "schemaVersion": 1,
+            "provider": "codex",
+            "repo": "workloom-ai/workroom-andromeda",
+            "number": 91,
+            "headSha": "7e3a524376fc950f2f607676bbe97ab5b8f84c5f",
+            "mainSha": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+            "policyHash": "5e4b7e077e29ef72e220a466dd6bd0dd102e11a780295d8632fa18aa34484c50",
+            "reviewedFiles": [
+              ".workloom-delivery-install.json",
+              "scripts/delivery/git-state.mjs",
+              "scripts/delivery/queue.test.mjs"
+            ],
+            "filesHash": "7d9d594424ecc8b2fa088ea1928230b39fbcfa4352d81ac7446e6b2eeafa5a9b",
+            "dependsOn": [],
+            "ciPolicyChanges": [
+              {
+                "id": "CI-001",
+                "rationale": "Current Codex completely reviewed the immutable-SHA read and direct model/API dependencies. Target bytes match the reviewed canonical base implementation. Authenticated canonical read uses branch commit SHA and decoded/text raw state, validates full repository-bound digest chain, and returns empty only after explicit 404 plus readable full-SHA main proof. Permission, malformed/foreign/corrupt content and missing raw state fail. Real Git mutation, ordinary fast-forward CAS and exact transaction recovery after lost acknowledgement remain. Only explicit ls-remote/fetch 429 receives two bounded read delays; no blind push/merge retry, platform AI or NPC call is introduced. Actual tests at this exact target source retain real bare Git CAS/lost-ack and CLI assertions."
+              },
+              {
+                "id": "CI-002",
+                "rationale": "Target bytes match the fully reviewed canonical regression. Added ten behavior tests for immutable SHA API read/decoded/text result, positive-only absence, permissions/transport/hidden main, malformed/foreign/corrupt state and bounded 429 read recovery/exhaustion/write exclusion. Actual CLI fixture derives branch SHA/state bytes from real bare Git, preserving previous CLI, six-writer CAS and lost acknowledgement coverage. Exact post-commit installed target suite passed with zero failures; one non-applicable shared UI publication case remains explicitly skipped. Original product pipelines and all hardened target adapter/checker/tests are unchanged."
+              }
+            ],
+            "ciPolicyChangesHash": "872d87911a04837b33dc99d5dcfe2d2849e450c173dc5d387d7417101fa7e8cd",
+            "tests": [
+              {
+                "command": "/Users/mac/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node --test scripts/delivery/queue.test.mjs scripts/ci/protocol-rules.test.mjs",
+                "exitCode": 0,
+                "headSha": "7e3a524376fc950f2f607676bbe97ab5b8f84c5f",
+                "finishedAt": "2026-10-06T18:57:04.918Z",
+                "result": "d unverified release (0.109208ms)\n✔ a lease acquired by another developer during snapshot reading blocks candidate creation (0.182583ms)\n✔ a reused task id or a ready PR body cannot release a developer lease or admit a candidate (0.149667ms)\n✔ candidate body or origin mutation is rejected before sending a platform merge (0.574916ms)\n✔ runner deadline uses elapsed time independently of injected lease/calendar time and preserves the exact boundary (0.143ms)\n✔ legacy review capacity never reads paid build history and cannot block unrelated reviewed source (0.035333ms)\n✔ release enqueue is idempotent by frozen source/kind/version and keeps integration separate (0.096833ms)\n✔ both UI and desktop dispatch pass the explicit frozen SHA to the whole build, independently of current branch SHA (0.440958ms)\n﹣ manual UI event and delivery dispatch use the same actual publishing job and native lock; the scheduler only launches and observes (4.4365ms) # This product has no shared UI publishing lane\n✔ release launch intent survives lost acknowledgement and forbids duplicate publication (0.423541ms)\n✔ release failures use the latest durable attempt count and park after two launches (0.210958ms)\n✔ lost release launch cannot adopt a different manual build with the same source/event (0.215375ms)\n✔ UI release verifies the real Platform API JSON decoding contract and rejects unreadable registration or different bytes (1.746458ms)\n✔ release verifies actual tag source, manifest identity and every downloaded digest (0.259625ms)\n✔ private release download authenticates only the official first request and hashes the actual redirected bytes (0.431458ms)\n✔ private release permission, unsafe redirect, empty/oversized stream and malformed manifest remain explicit failures (0.808834ms)\n✔ a release redirect loop is bounded and every later same-origin or foreign request omits the token (0.162042ms)\nℹ tests 115\nℹ suites 5\nℹ pass 114\nℹ fail 0\nℹ cancelled 0\nℹ skipped 1\nℹ todo 0\nℹ duration_ms 11330.126\n",
+                "logPath": "/Users/mac/Documents/Codex/2026-10-05/agent-pr-pr-pr/work/account-live-install/ledger-tests/workloom-ai-workroom-andromeda.txt"
+              }
+            ],
+            "reviewedAt": "2026-10-06T18:58:23.957Z",
+            "summary": "Actual current Codex review of the already-active target update. Canonical source implementation and dependencies were completely read (A origin); actual target copies match those bytes (B). The complete exact changed paths, manifest provenance/digests and zero-change repeat installation were checked. Only ledger read implementation/tests/package provenance change; original CI, business identity, isolation, stronger target checker/test bytes and aliases remain. Actual post-commit target regression and source/main/policy/file/CI IDs are bound in this receipt. No unresolved blocking finding. Requires real original machine CI and native immutable candidate ordinary two-parent integration; no first-install privileged merge, human Approve, platform model or NPC execution.",
+            "passed": true,
+            "id": "6d26fb63ed0d25735b23c05cb3522f8c3609e8f6d8814f8886f5a66189f82385"
+          },
+          "reviewSnapshot": {
+            "repo": "workloom-ai/workroom-andromeda",
+            "number": 91,
+            "pull": {
+              "number": 91,
+              "state": "open",
+              "title": "feat(base): 安装普通研发自动交付 [T-2026-1006-2806]",
+              "body": "原仓必需检查保留，新增 Codex 审查回执 和交付回归。安装范围及四问见 Issue #90 [T-2026-1006-2806]。\n\n<!-- delivery-install:0b3ca2b2eae4a920cf618a4a2bd57e780df5208bc5ef42ef1498b52dbaab4a03 -->\n\n<!-- workloom-delivery\n{\n  \"task_id\": \"T-2026-1006-2806\",\n  \"ready\": true,\n  \"depends_on\": [],\n  \"releases\": []\n}\n-->",
+              "author": {
+                "username": "cnb.dYiF05kxAGA",
+                "nickname": "Genius",
+                "email": "XYpmztfpCvez6l8z5BBAvJ+cnb.dYiF05kxAGA@noreply.cnb.cool",
+                "is_npc": false
+              },
+              "reviewers": [],
+              "labels": [],
+              "base": {
+                "ref": "refs/heads/main",
+                "sha": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+                "repo": {
+                  "id": "2100397232930775040",
+                  "name": "workroom-andromeda",
+                  "path": "workloom-ai/workroom-andromeda",
+                  "web_url": "https://cnb.cool/workloom-ai/workroom-andromeda"
+                }
+              },
+              "head": {
+                "ref": "refs/heads/chore/protocol-onboarding-delivery-0b3ca2b2eae4a920-99b24cf23beb",
+                "sha": "7e3a524376fc950f2f607676bbe97ab5b8f84c5f",
+                "repo": {
+                  "id": "2100397232930775040",
+                  "name": "workroom-andromeda",
+                  "path": "workloom-ai/workroom-andromeda",
+                  "web_url": "https://cnb.cool/workloom-ai/workroom-andromeda"
+                }
+              },
+              "blocked_on": "unblocked",
+              "merged_by": {
+                "is_npc": false
+              },
+              "mergeable_state": "mergeable",
+              "is_wip": false,
+              "is_merged": false,
+              "is_force_merged": false,
+              "statuses": {}
+            },
+            "headSha": "7e3a524376fc950f2f607676bbe97ab5b8f84c5f",
+            "mainSha": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+            "files": [
+              ".workloom-delivery-install.json",
+              "scripts/delivery/git-state.mjs",
+              "scripts/delivery/queue.test.mjs"
+            ],
+            "intent": {
+              "taskId": "T-2026-1006-2806",
+              "ready": true,
+              "dependsOn": [],
+              "releases": []
+            },
+            "headTime": 1791312731000,
+            "mergeBase": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+            "checkErrors": [],
+            "checkSha": null,
+            "hasFailedChecks": false,
+            "ciPolicyChanges": [
+              {
+                "id": "CI-001",
+                "file": "scripts/delivery/git-state.mjs",
+                "before": {
+                  "ref": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+                  "path": "scripts/delivery/git-state.mjs",
+                  "absent": false
+                },
+                "after": {
+                  "ref": "7e3a524376fc950f2f607676bbe97ab5b8f84c5f",
+                  "path": "scripts/delivery/git-state.mjs",
+                  "absent": false
+                },
+                "digest": "98e2519ac147ee687d1a72877821edd3a0f942159055edb180a5946787f0c216"
+              },
+              {
+                "id": "CI-002",
+                "file": "scripts/delivery/queue.test.mjs",
+                "before": {
+                  "ref": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+                  "path": "scripts/delivery/queue.test.mjs",
+                  "absent": false
+                },
+                "after": {
+                  "ref": "7e3a524376fc950f2f607676bbe97ab5b8f84c5f",
+                  "path": "scripts/delivery/queue.test.mjs",
+                  "absent": false
+                },
+                "digest": "aa49fc489fcc7fa390c851b110ab05bf2410918b0aeeb10fce58fa2626319bad"
+              }
+            ]
+          }
+        }
+      },
+      "previous": "366898e606ac81100f778545141453248468918f66978a0d85e377a525ce27f3",
+      "digest": "f893d13567e7ca78a4896e8a3a6fc92d213c9d283eb58d092adc61c66b01c398"
+    },
+    {
+      "sequence": 66,
+      "at": "2026-10-06T18:59:59.958Z",
+      "kind": "transaction",
+      "data": {
+        "id": "40f7aee1-63cc-483c-b1c8-bcd1ee3b3fef"
+      },
+      "previous": "f893d13567e7ca78a4896e8a3a6fc92d213c9d283eb58d092adc61c66b01c398",
+      "digest": "3713906bce34fa94d609b6beb5de64091ddf575c1f858e0d237614eb58fa19ad"
     }
   ]
 }
