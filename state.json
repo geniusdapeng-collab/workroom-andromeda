@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "repo": "workloom-ai/workroom-andromeda",
-  "revision": 43,
+  "revision": 45,
   "tasks": {
     "86": {
       "number": 86,
-      "status": "waiting_ci",
+      "status": "aligning",
       "firstSeen": 1791310514552,
       "attempts": {},
       "headSha": "eb59d9e93d38613c75b8e0793cdfae459fe5d9fc",
@@ -22,7 +22,14 @@
         "apps/server/src/trpc/router.ts"
       ],
       "ciSince": 1791310514552,
-      "updatedAt": 1791310816403
+      "updatedAt": 1791310816403,
+      "alignmentCount": 1,
+      "alignmentIntent": {
+        "headSha": "eb59d9e93d38613c75b8e0793cdfae459fe5d9fc",
+        "mainSha": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+        "at": 1791310816403
+      },
+      "developerReview": null
     },
     "88": {
       "number": 88,
@@ -3789,6 +3796,36 @@
       },
       "previous": "256e89e6db759c368d0878ed5d47b5758f86d9699820818b1c379ece77727344",
       "digest": "44623107b13b35f990c84b0e1963bddf601f494cced9f51ac6404f0a8ed22cad"
+    },
+    {
+      "sequence": 44,
+      "at": "2026-10-06T18:20:16.403Z",
+      "kind": "task",
+      "data": {
+        "number": 86,
+        "patch": {
+          "status": "aligning",
+          "alignmentCount": 1,
+          "alignmentIntent": {
+            "headSha": "eb59d9e93d38613c75b8e0793cdfae459fe5d9fc",
+            "mainSha": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+            "at": 1791310816403
+          },
+          "developerReview": null
+        }
+      },
+      "previous": "44623107b13b35f990c84b0e1963bddf601f494cced9f51ac6404f0a8ed22cad",
+      "digest": "75cb703f2e8ecc15c79fcf72db7e87b90af6d768f70d68af3e2136572238f224"
+    },
+    {
+      "sequence": 45,
+      "at": "2026-10-06T18:20:18.710Z",
+      "kind": "transaction",
+      "data": {
+        "id": "3210ef2f-3f96-429b-bc8c-eb41123ebe10"
+      },
+      "previous": "75cb703f2e8ecc15c79fcf72db7e87b90af6d768f70d68af3e2136572238f224",
+      "digest": "a217456e4634dde81b6db3ce27f2582d29c3375227794066dc075ff309e45129"
     }
   ]
 }
