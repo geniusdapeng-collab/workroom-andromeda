@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "repo": "workloom-ai/workroom-andromeda",
-  "revision": 37,
+  "revision": 39,
   "tasks": {
     "88": {
       "number": 88,
@@ -3672,6 +3672,28 @@
       },
       "previous": "f6f13b71dc7d921bb1b59c8e4a45578eaba969b3bc6abcd26fc1593fa70b5c36",
       "digest": "4fa0aab225318cb9b22342d74e8b5f1c440afcc0dc00e52f701ad055cc62cdae"
+    },
+    {
+      "sequence": 38,
+      "at": "2026-10-06T18:10:34.529Z",
+      "kind": "installer_replacement_closed",
+      "data": {
+        "number": 88,
+        "replacement": 89,
+        "sha": "99b24cf23beb80be1ac2d83f31327eba26ca2da5"
+      },
+      "previous": "4fa0aab225318cb9b22342d74e8b5f1c440afcc0dc00e52f701ad055cc62cdae",
+      "digest": "969b704698f10eb5c34788ed6bd20b06d36a55ff766651272b29627378190844"
+    },
+    {
+      "sequence": 39,
+      "at": "2026-10-06T18:10:33.832Z",
+      "kind": "transaction",
+      "data": {
+        "id": "installer-replacement-closed:88:89"
+      },
+      "previous": "969b704698f10eb5c34788ed6bd20b06d36a55ff766651272b29627378190844",
+      "digest": "568d8e9dc970419fe69c8c544aeef78981ebdb18ba3a9dd4f7d0d12650d299a5"
     }
   ]
 }
