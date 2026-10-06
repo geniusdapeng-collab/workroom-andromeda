@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "repo": "workloom-ai/workroom-andromeda",
-  "revision": 68,
+  "revision": 70,
   "tasks": {
     "86": {
       "number": 86,
-      "status": "waiting_ci",
+      "status": "parked",
       "firstSeen": 1791310514552,
       "attempts": {},
       "headSha": "bd0f90dd078d1a0b76d5f0a0c52c5aee4fdabee2",
@@ -40,7 +40,17 @@
         "scopes": [],
         "owner": "admission/pr-86",
         "generation": {}
-      }
+      },
+      "error": "检查/评审阻断：Developer has not handed off; Codex review identity differs from the exact repository/source/main/policy",
+      "repairRequired": {
+        "provider": "codex",
+        "headSha": "bd0f90dd078d1a0b76d5f0a0c52c5aee4fdabee2",
+        "mainSha": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+        "reason": "检查/评审阻断：Developer has not handed off; Codex review identity differs from the exact repository/source/main/policy",
+        "at": 1791314465164
+      },
+      "recoveryIntent": null,
+      "blockedUntil": 1791315065164
     },
     "88": {
       "number": 88,
@@ -4521,6 +4531,39 @@
       },
       "previous": "d8f151909c773d0ce81a6b90a9d2af56e654de97be362ab770adff3df7e4734a",
       "digest": "02e9e7f6afee22a8e3c0ef011b1d7480bad9de32f55c9f48cd1b3bc9c6c46695"
+    },
+    {
+      "sequence": 69,
+      "at": "2026-10-06T19:21:05.164Z",
+      "kind": "task",
+      "data": {
+        "number": 86,
+        "patch": {
+          "status": "parked",
+          "error": "检查/评审阻断：Developer has not handed off; Codex review identity differs from the exact repository/source/main/policy",
+          "repairRequired": {
+            "provider": "codex",
+            "headSha": "bd0f90dd078d1a0b76d5f0a0c52c5aee4fdabee2",
+            "mainSha": "99b24cf23beb80be1ac2d83f31327eba26ca2da5",
+            "reason": "检查/评审阻断：Developer has not handed off; Codex review identity differs from the exact repository/source/main/policy",
+            "at": 1791314465164
+          },
+          "recoveryIntent": null,
+          "blockedUntil": 1791315065164
+        }
+      },
+      "previous": "02e9e7f6afee22a8e3c0ef011b1d7480bad9de32f55c9f48cd1b3bc9c6c46695",
+      "digest": "dad410e5ae6a0cb6128dfddf8f12beb0ab675bf6ff805430b800559c24e8e79d"
+    },
+    {
+      "sequence": 70,
+      "at": "2026-10-06T19:21:07.809Z",
+      "kind": "transaction",
+      "data": {
+        "id": "c2de2d6b-1361-43c6-b02a-9fa90cd4a4a0"
+      },
+      "previous": "dad410e5ae6a0cb6128dfddf8f12beb0ab675bf6ff805430b800559c24e8e79d",
+      "digest": "4efd599fbbd2e630bdc50ae3a27abf8c7fa84ab41e481b6211d7c96cb6c4d2ed"
     }
   ]
 }
