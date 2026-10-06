@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "repo": "workloom-ai/workroom-andromeda",
-  "revision": 144,
+  "revision": 146,
   "tasks": {
     "86": {
       "number": 86,
@@ -22,7 +22,7 @@
         "apps/server/src/trpc/router.ts"
       ],
       "ciSince": 1791315726841,
-      "updatedAt": 1791322818461,
+      "updatedAt": 1791323714247,
       "alignmentCount": 1,
       "alignmentIntent": null,
       "developerReview": null,
@@ -50,7 +50,7 @@
         "at": 1791322210627
       },
       "recoveryIntent": null,
-      "blockedUntil": 1791323418461,
+      "blockedUntil": 1791324314247,
       "recoveryCount": 0,
       "reviewFailures": null,
       "candidate": null
@@ -6064,6 +6064,31 @@
       },
       "previous": "7caf5e2df6baae7713010e82608253f589104f9b6336c6accbdea85295c8a10a",
       "digest": "f92ebb3ff7180d86fc7d3c743fef756b834d5a97ccbced85eb6475cb70fb8e99"
+    },
+    {
+      "sequence": 145,
+      "at": "2026-10-06T21:55:14.247Z",
+      "kind": "task",
+      "data": {
+        "number": 86,
+        "patch": {
+          "status": "parked",
+          "error": "CNB 429 https://api.cnb.cool/workloom-ai/workroom-andromeda/-/pulls/86 :: {\"errcode\":8,\"errmsg\":\"Too many requests. Please try again later.\"}\n",
+          "blockedUntil": 1791324314247
+        }
+      },
+      "previous": "f92ebb3ff7180d86fc7d3c743fef756b834d5a97ccbced85eb6475cb70fb8e99",
+      "digest": "6cfa2f33ee402f03735b85a628e75634c2ea6052692e01b19b43ee2832bd0a2d"
+    },
+    {
+      "sequence": 146,
+      "at": "2026-10-06T21:55:17.510Z",
+      "kind": "transaction",
+      "data": {
+        "id": "0efab543-27dc-4ac1-b675-df2378782c16"
+      },
+      "previous": "6cfa2f33ee402f03735b85a628e75634c2ea6052692e01b19b43ee2832bd0a2d",
+      "digest": "fabb6d516e5562d1fcad295e70f04be7d75a1d9c2da2754707481b59353ccd51"
     }
   ]
 }
