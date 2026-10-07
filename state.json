@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "repo": "workloom-ai/workroom-andromeda",
-  "revision": 346,
+  "revision": 348,
   "tasks": {
     "86": {
       "number": 86,
@@ -41,16 +41,16 @@
         "owner": "admission/pr-86",
         "generation": {}
       },
-      "error": "CNB 429 https://api.cnb.cool/workloom-ai/workroom-andromeda/-/pulls/86/commit-statuses :: {\"errcode\":8,\"errmsg\":\"Too many requests. Please try again later.\"}\n",
+      "error": "检查/评审阻断：Developer has not handed off; Codex review identity differs from the exact repository/source/main/policy",
       "repairRequired": {
         "provider": "codex",
         "headSha": "67562d172fce4ea9021cba9869fd08a61e602da6",
         "mainSha": "100842119ce8d84aabb3d65fb1510045a25b9897",
         "reason": "检查/评审阻断：Developer has not handed off; Codex review identity differs from the exact repository/source/main/policy",
-        "at": 1791368112944
+        "at": 1791369013618
       },
       "recoveryIntent": null,
-      "blockedUntil": 1791369010845,
+      "blockedUntil": 1791369613618,
       "recoveryCount": 0,
       "reviewFailures": null,
       "candidate": null
@@ -9401,6 +9401,39 @@
       },
       "previous": "e65e43022aed467d6ac301c0966f5c5bbad3dc8ccb687a82bda90260402412a0",
       "digest": "17070a00336b9d4678cca538692db3e817bbbaab976be6a36103e7247d00da98"
+    },
+    {
+      "sequence": 347,
+      "at": "2026-10-07T10:30:13.618Z",
+      "kind": "task",
+      "data": {
+        "number": 86,
+        "patch": {
+          "status": "parked",
+          "error": "检查/评审阻断：Developer has not handed off; Codex review identity differs from the exact repository/source/main/policy",
+          "repairRequired": {
+            "provider": "codex",
+            "headSha": "67562d172fce4ea9021cba9869fd08a61e602da6",
+            "mainSha": "100842119ce8d84aabb3d65fb1510045a25b9897",
+            "reason": "检查/评审阻断：Developer has not handed off; Codex review identity differs from the exact repository/source/main/policy",
+            "at": 1791369013618
+          },
+          "recoveryIntent": null,
+          "blockedUntil": 1791369613618
+        }
+      },
+      "previous": "17070a00336b9d4678cca538692db3e817bbbaab976be6a36103e7247d00da98",
+      "digest": "efe6db7d9abb2e885b613ef1e53b390fa939e9d08ebf34d7b5cf05894b1028bd"
+    },
+    {
+      "sequence": 348,
+      "at": "2026-10-07T10:30:15.589Z",
+      "kind": "transaction",
+      "data": {
+        "id": "dfc466c3-368f-4741-92d1-a96efd618bdb"
+      },
+      "previous": "efe6db7d9abb2e885b613ef1e53b390fa939e9d08ebf34d7b5cf05894b1028bd",
+      "digest": "e376807a66c5d01e231dd1644557977d124f4608f753567b26416482b7a4b85e"
     }
   ]
 }
