@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "repo": "workloom-ai/workroom-andromeda",
-  "revision": 686,
+  "revision": 688,
   "tasks": {
     "86": {
       "number": 86,
@@ -41,16 +41,16 @@
         "owner": "admission/pr-86",
         "generation": {}
       },
-      "error": "CNB 429 https://api.cnb.cool/workloom-ai/workroom-andromeda/-/pulls/86 :: {\"errcode\":8,\"errmsg\":\"Too many requests. Please try again later.\"}\n",
+      "error": "检查/评审阻断：Developer has not handed off; Codex review identity differs from the exact repository/source/main/policy",
       "repairRequired": {
         "provider": "codex",
         "headSha": "67562d172fce4ea9021cba9869fd08a61e602da6",
         "mainSha": "100842119ce8d84aabb3d65fb1510045a25b9897",
         "reason": "检查/评审阻断：Developer has not handed off; Codex review identity differs from the exact repository/source/main/policy",
-        "at": 1791439221045
+        "at": 1791440414549
       },
       "recoveryIntent": null,
-      "blockedUntil": 1791440124803,
+      "blockedUntil": 1791441014549,
       "recoveryCount": 0,
       "reviewFailures": null,
       "candidate": null
@@ -15131,6 +15131,39 @@
       },
       "previous": "4a23f2d4be7d190861a7bd78f4b962c447cb02b33eb980e7e792b8d565d58713",
       "digest": "896060a8a44574eb465f6d6b0ba09fba0be49f41596c19628d46e766ba594bdc"
+    },
+    {
+      "sequence": 687,
+      "at": "2026-10-08T06:20:14.549Z",
+      "kind": "task",
+      "data": {
+        "number": 86,
+        "patch": {
+          "status": "parked",
+          "error": "检查/评审阻断：Developer has not handed off; Codex review identity differs from the exact repository/source/main/policy",
+          "repairRequired": {
+            "provider": "codex",
+            "headSha": "67562d172fce4ea9021cba9869fd08a61e602da6",
+            "mainSha": "100842119ce8d84aabb3d65fb1510045a25b9897",
+            "reason": "检查/评审阻断：Developer has not handed off; Codex review identity differs from the exact repository/source/main/policy",
+            "at": 1791440414549
+          },
+          "recoveryIntent": null,
+          "blockedUntil": 1791441014549
+        }
+      },
+      "previous": "896060a8a44574eb465f6d6b0ba09fba0be49f41596c19628d46e766ba594bdc",
+      "digest": "f6f68816e056a1aaebc3cbeda43098c6ce86fe830c7df2c54f52335e20823930"
+    },
+    {
+      "sequence": 688,
+      "at": "2026-10-08T06:20:17.809Z",
+      "kind": "transaction",
+      "data": {
+        "id": "c7affa78-85f0-4105-a200-b2d0a8ed07c8"
+      },
+      "previous": "f6f68816e056a1aaebc3cbeda43098c6ce86fe830c7df2c54f52335e20823930",
+      "digest": "09711e55f4e2bab1fcde46dd8d1af4625ffd6cac9324309724169d58c1dae600"
     }
   ]
 }
