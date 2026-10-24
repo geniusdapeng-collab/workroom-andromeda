@@ -4,7 +4,7 @@
   "role": "operations-hub",
   "displayName": "仙女座运营运维系统",
   "packageName": "workroom-andromeda",
-  "repository": "workloom-ai/workroom-andromeda",
+  "repository": "geniusdapeng-collab/workroom-andromeda",
   "defaultBundle": "platform",
   "demoWorkspaceSlug": "platform-demo",
   "demoMemberNo": "MEM-001",
@@ -18,8 +18,17 @@
     "portOffset": 120
   },
   "clients": {
-    "bPc": { "enabled": true, "entry": "apps/web" },
-    "bMobile": { "enabled": true, "entry": "apps/webb" },
-    "cMobile": { "enabled": true, "entry": "apps/webc" }
+    "bPc": {
+      "enabled": true,
+      "entry": "apps/web"
+    },
+    "bMobile": {
+      "enabled": true,
+      "entry": "apps/webb"
+    },
+    "cMobile": {
+      "enabled": true,
+      "entry": "apps/webc"
+    }
   }
 }

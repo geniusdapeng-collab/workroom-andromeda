@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "workloom.repository/v1",
+  "logicalId": "workroom-andromeda",
+  "productId": "workroom-andromeda",
+  "lane": "operations-hub",
+  "primaryPlatform": "github",
+  "github": {
+    "repository": "geniusdapeng-collab/workroom-andromeda",
+    "url": "https://github.com/geniusdapeng-collab/workroom-andromeda",
+    "branch": "main"
+  },
+  "cnb": {
+    "repository": "workloom-ai/workroom-andromeda",
+    "url": "https://cnb.cool/workloom-ai/workroom-andromeda",
+    "branch": "main"
+  },
+  "mirrorPolicy": {
+    "platform": "cnb",
+    "mode": "deferred",
+    "automaticProductSync": false,
+    "configBackupBranchPrefix": "workloom/config-backup/"
+  },
+  "baseSync": {
+    "receive": "subscribed",
+    "reflux": "proposal-only",
+    "pathPrefix": "",
+    "extraExclude": [
+      "platform-ops/**"
+    ],
+    "uiRolloutWave": "W1"
+  },
+  "registry": {
+    "repository": "geniusdapeng-collab/workloom-im",
+    "path": "sync/repository-registry.json"
+  }
+}
