@@ -1,6 +1,6 @@
 # 仙女座 Andromeda · WorkLoom 平台运营与运维
 
-**仙女座是 WorkLoom 平台运营团队的工作台。** 数字员工负责收集信息、推进工单和整理建议。平台人员在同一处查看证据，处理敏感变更并核对执行结果。
+**仙女座是 WorkLoom 平台团队的运营与运维中枢。** 平台人员可在工作台处理支持工单，查看账号活跃、登录异常、强制下线和即将到期的伙伴授权，并按证据审核敏感变更。数字员工协助归集资料、跟进工单和整理建议。平台工程目录包含事件投影、变更分级、验证闸门和分批更新机制。
 
 [English](README_EN.md) · [平台运营包](bundles/platform/README.md) · [仓库 Agent 指引](AGENTS.md)
 
@@ -66,15 +66,15 @@ flowchart LR
 环境：Node 24 LTS（corepack 自带 pnpm 10）+ PostgreSQL 17 + pgvector 0.8（`docker compose up -d postgres` 一条命令就绪）。
 
 ```bash
-git clone https://github.com/workloom-ai/workloom-im.git
-cd workloom-im
+git clone https://github.com/geniusdapeng-collab/workroom-andromeda.git
+cd workroom-andromeda
 corepack enable && pnpm install && cp .env.example .env
 
 # 数据库初始化（建库建扩展即可；migrate 自动创建 app/gateway 双角色并完成授权——
 # A3 旁路防控：只有 gateway 角色可 INSERT biz_events）
 psql -U postgres -c "CREATE DATABASE workloom;"
 psql -U postgres -d workloom -c "CREATE EXTENSION vector;"
-pnpm db:migrate && pnpm db:seed   # 17 个迁移 + 演示种子（种子幂等可复跑）
+pnpm db:migrate && pnpm db:seed:platform   # 迁移 + 仙女座运营运维演示种子
 
 # 质量门禁（与 CI ci-gate 完全同口径）
 pnpm typecheck         # 全仓类型检查

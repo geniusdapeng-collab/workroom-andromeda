@@ -1,6 +1,6 @@
 # Andromeda · WorkLoom Platform Operations
 
-**Andromeda is the workspace for the team that operates WorkLoom.** Digital staff handle routine work and prepare recommendations. Platform operators review sensitive changes, inspect the evidence, and verify the result.
+**Andromeda is the operations workspace for the team that runs WorkLoom.** Operators handle support tickets and review account activity, sign-in anomalies, forced sign-outs, and expiring partner grants. Digital staff gather evidence and draft recommendations. Platform engineering modules provide event projections, change checks, and staged rollouts.
 
 [简体中文](README.md) · [Platform bundle](bundles/platform/README.md) · [Agent entry](AGENTS.md)
 
@@ -49,7 +49,7 @@ corepack enable && pnpm install && cp .env.example .env
 # A3 anti-bypass: only the gateway role may INSERT into biz_events)
 psql -U postgres -c "CREATE DATABASE workloom;"
 psql -U postgres -d workloom -c "CREATE EXTENSION vector;"
-pnpm db:migrate && pnpm db:seed   # 5 migrations + demo seed (service-store demo workspace)
+pnpm db:migrate && pnpm db:seed:platform   # migrations and the Andromeda demo workspace
 pnpm typecheck && pnpm test       # typecheck + vitest 168 (DB integration below)
 pnpm db:verify-chain              # full hash-chain recomputation
 pnpm suite                        # 371 scenario cases (incl. HTTP E2E with a real spawned server)
@@ -75,14 +75,14 @@ RUN_DB_TESTS=1 pnpm -C packages/base test
 Requirements: Node 24 LTS (pnpm 10 via corepack) + PostgreSQL 17 + pgvector 0.8.
 
 ```bash
-git clone https://github.com/workloom-ai/workloom-im.git
-cd workloom-im
+git clone https://github.com/geniusdapeng-collab/workroom-andromeda.git
+cd workroom-andromeda
 corepack enable && pnpm install && cp .env.example .env
 
 # DB init (just database + extension; migrate auto-creates the app/gateway roles and grants)
 psql -U postgres -c "CREATE DATABASE workloom;"
 psql -U postgres -d workloom -c "CREATE EXTENSION vector;"
-pnpm db:migrate && pnpm db:seed   # 5 migrations + demo seed (idempotent, re-runnable)
+pnpm db:migrate && pnpm db:seed:platform   # migrations and the Andromeda demo workspace
 
 # Quality gates (exactly what CI ci-gate runs on every push)
 pnpm typecheck         # repo-wide typecheck
@@ -94,7 +94,7 @@ pnpm demo              # end-to-end demo play
 pnpm doctor            # environment self-check
 
 # Daily development
-pnpm dev               # server(:8787) + web(:5173); demo login: pick "王店长"
+pnpm dev               # server(:8787) + web(:5173); platform-demo workspace
 ```
 
 Layout: `apps/{server, web, site, desktop}` + `packages/{shared, db, base, runtime}` + `bundles/` (industry packs) + `vendor/{dsh, dsh-im}`, a pnpm monorepo. Core foundation: **`packages/base/workdata` (the WorkData data brain)**. Full 371-case list: [`docs/SUITE.md`](docs/SUITE.md); CI gates: `.github/workflows/ci.yml`.
